@@ -95,7 +95,8 @@ class Scraper:
         self.listing_type = scraper_input.listing_type
         self.property_type = scraper_input.property_type
 
-        if not self.session:
+        # Initialize shared session if not already created
+        if not Scraper.session:
             if USE_CURL_CFFI:
                 Scraper.session = requests.Session(impersonate=DEFAULT_IMPERSONATE)
                 # curl_cffi Session doesn't support mount() - it handles retries internally
@@ -121,6 +122,9 @@ class Scraper:
                     'User-Agent': 'Realtor.com/26.11.1.1106489 CFNetwork/3860.200.71 Darwin/25.1.0',
                 }
             )
+        
+        # Set instance session to the shared class session
+        self.session = Scraper.session
 
         self.proxy = scraper_input.proxy
         if self.proxy:
