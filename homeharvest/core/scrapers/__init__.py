@@ -98,15 +98,16 @@ class Scraper:
         if not self.session:
             if USE_CURL_CFFI:
                 Scraper.session = requests.Session(impersonate=DEFAULT_IMPERSONATE)
+                # curl_cffi Session doesn't support mount() - it handles retries internally
+                # Retry configuration is handled differently in curl_cffi
             else:
                 Scraper.session = requests.Session()
-            retries = Retry(
-                total=3, backoff_factor=4, status_forcelist=[429], allowed_methods=frozenset(["GET", "POST"])
-            )
-
-            adapter = HTTPAdapter(max_retries=retries, pool_connections=10, pool_maxsize=20)
-            Scraper.session.mount("http://", adapter)
-            Scraper.session.mount("https://", adapter)
+                retries = Retry(
+                    total=3, backoff_factor=4, status_forcelist=[429], allowed_methods=frozenset(["GET", "POST"])
+                )
+                adapter = HTTPAdapter(max_retries=retries, pool_connections=10, pool_maxsize=20)
+                Scraper.session.mount("http://", adapter)
+                Scraper.session.mount("https://", adapter)
             Scraper.session.headers.update(
                 {
                     'Content-Type': 'application/json',
