@@ -7,11 +7,19 @@ try:
     from curl_cffi.requests.adapters import HTTPAdapter
     USE_CURL_CFFI = True
     DEFAULT_IMPERSONATE = "chrome110"  # Can also try: chrome116, chrome120, edge99
+    # Log that curl_cffi is being used (only log once at module import)
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info(f"[HOMEHARVEST] curl_cffi enabled with impersonate={DEFAULT_IMPERSONATE}")
 except ImportError:
     import requests
     from requests.adapters import HTTPAdapter
     USE_CURL_CFFI = False
     DEFAULT_IMPERSONATE = None
+    # Log that curl_cffi is not available
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.warning("[HOMEHARVEST] curl_cffi not available - using standard requests library")
 
 from urllib3.util.retry import Retry
 import uuid
@@ -165,26 +173,51 @@ class Scraper:
     def get_access_token():
         device_id = str(uuid.uuid4()).upper()
 
-        response = requests.post(
-            "https://graph.realtor.com/auth/token",
-            headers={
-                "Host": "graph.realtor.com",
-                "Accept": "*/*",
-                "Content-Type": "Application/json",
-                "X-Client-ID": "rdc_mobile_native,iphone",
-                "X-Visitor-ID": device_id,
-                "X-Client-Version": "24.21.23.679885",
-                "Accept-Language": "en-US,en;q=0.9",
-                "User-Agent": "Realtor.com/24.21.23.679885 CFNetwork/1494.0.7 Darwin/23.4.0",
-            },
-            data=json.dumps(
-                {
-                    "grant_type": "device_mobile",
-                    "device_id": device_id,
-                    "client_app_id": "rdc_mobile_native,24.21.23.679885,iphone",
-                }
-            ),
-        )
+        # Use curl_cffi session for TLS fingerprinting if available
+        if USE_CURL_CFFI:
+            # Create a temporary session with TLS fingerprinting for this request
+            with requests.Session(impersonate=DEFAULT_IMPERSONATE) as session:
+                response = session.post(
+                    "https://graph.realtor.com/auth/token",
+                    headers={
+                        "Host": "graph.realtor.com",
+                        "Accept": "*/*",
+                        "Content-Type": "Application/json",
+                        "X-Client-ID": "rdc_mobile_native,iphone",
+                        "X-Visitor-ID": device_id,
+                        "X-Client-Version": "24.21.23.679885",
+                        "Accept-Language": "en-US,en;q=0.9",
+                        "User-Agent": "Realtor.com/24.21.23.679885 CFNetwork/1494.0.7 Darwin/23.4.0",
+                    },
+                    data=json.dumps(
+                        {
+                            "grant_type": "device_mobile",
+                            "device_id": device_id,
+                            "client_app_id": "rdc_mobile_native,24.21.23.679885,iphone",
+                        }
+                    ),
+                )
+        else:
+            response = requests.post(
+                "https://graph.realtor.com/auth/token",
+                headers={
+                    "Host": "graph.realtor.com",
+                    "Accept": "*/*",
+                    "Content-Type": "Application/json",
+                    "X-Client-ID": "rdc_mobile_native,iphone",
+                    "X-Visitor-ID": device_id,
+                    "X-Client-Version": "24.21.23.679885",
+                    "Accept-Language": "en-US,en;q=0.9",
+                    "User-Agent": "Realtor.com/24.21.23.679885 CFNetwork/1494.0.7 Darwin/23.4.0",
+                },
+                data=json.dumps(
+                    {
+                        "grant_type": "device_mobile",
+                        "device_id": device_id,
+                        "client_app_id": "rdc_mobile_native,24.21.23.679885,iphone",
+                    }
+                ),
+            )
 
         data = response.json()
 
