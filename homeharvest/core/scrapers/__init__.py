@@ -7,7 +7,8 @@ logger = logging.getLogger(__name__)
 
 try:
     from curl_cffi import requests
-    from curl_cffi.requests.adapters import HTTPAdapter
+    # curl_cffi.requests is compatible with requests API, but adapters come from standard requests
+    from requests.adapters import HTTPAdapter
     USE_CURL_CFFI = True
     DEFAULT_IMPERSONATE = "chrome110"  # Can also try: chrome116, chrome120, edge99
     # Log that curl_cffi is being used (only log once at module import)
