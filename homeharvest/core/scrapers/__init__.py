@@ -2,24 +2,30 @@ from __future__ import annotations
 from typing import Union
 
 # Try to use curl_cffi for TLS fingerprinting (anti-bot measures)
+import logging
+logger = logging.getLogger(__name__)
+
 try:
     from curl_cffi import requests
     from curl_cffi.requests.adapters import HTTPAdapter
     USE_CURL_CFFI = True
     DEFAULT_IMPERSONATE = "chrome110"  # Can also try: chrome116, chrome120, edge99
     # Log that curl_cffi is being used (only log once at module import)
-    import logging
-    logger = logging.getLogger(__name__)
     logger.info(f"[HOMEHARVEST] curl_cffi enabled with impersonate={DEFAULT_IMPERSONATE}")
-except ImportError:
+except ImportError as e:
     import requests
     from requests.adapters import HTTPAdapter
     USE_CURL_CFFI = False
     DEFAULT_IMPERSONATE = None
-    # Log that curl_cffi is not available
-    import logging
-    logger = logging.getLogger(__name__)
-    logger.warning("[HOMEHARVEST] curl_cffi not available - using standard requests library")
+    # Log that curl_cffi is not available with error details
+    logger.warning(f"[HOMEHARVEST] curl_cffi not available - using standard requests library. ImportError: {str(e)}")
+except Exception as e:
+    # Catch any other errors during import (e.g., missing system dependencies)
+    import requests
+    from requests.adapters import HTTPAdapter
+    USE_CURL_CFFI = False
+    DEFAULT_IMPERSONATE = None
+    logger.error(f"[HOMEHARVEST] curl_cffi import failed with unexpected error: {type(e).__name__}: {str(e)}. Falling back to standard requests library.")
 
 from urllib3.util.retry import Retry
 import uuid
