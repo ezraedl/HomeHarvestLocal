@@ -10,7 +10,9 @@ try:
     # curl_cffi.requests is compatible with requests API, but adapters come from standard requests
     from requests.adapters import HTTPAdapter
     USE_CURL_CFFI = True
-    DEFAULT_IMPERSONATE = "chrome110"  # Can also try: chrome116, chrome120, edge99
+    # Try chrome120 (newer) - better TLS fingerprinting support
+    # Note: User-Agent is iOS mobile, but TLS fingerprint is Chrome (this is common for mobile apps)
+    DEFAULT_IMPERSONATE = "chrome120"  # Can also try: chrome116, chrome110, edge99, safari15_3
     # Log that curl_cffi is being used (only log once at module import)
     logger.info(f"[HOMEHARVEST] curl_cffi enabled with impersonate={DEFAULT_IMPERSONATE}")
 except ImportError as e:
@@ -101,6 +103,7 @@ class Scraper:
                 Scraper.session = requests.Session(impersonate=DEFAULT_IMPERSONATE)
                 # curl_cffi Session doesn't support mount() - it handles retries internally
                 # Retry configuration is handled differently in curl_cffi
+                logger.info(f"[HOMEHARVEST] Created curl_cffi session with impersonate={DEFAULT_IMPERSONATE}")
             else:
                 Scraper.session = requests.Session()
                 retries = Retry(
@@ -130,6 +133,9 @@ class Scraper:
         if self.proxy:
             proxies = {"http": self.proxy, "https": self.proxy}
             self.session.proxies.update(proxies)
+            logger.info(f"[HOMEHARVEST] Session proxy configured: {self.proxy[:50]}... (session type: {type(self.session).__module__}.{type(self.session).__name__})")
+        else:
+            logger.debug(f"[HOMEHARVEST] No proxy configured (session type: {type(self.session).__module__}.{type(self.session).__name__})")
 
         self.listing_type = scraper_input.listing_type
         self.radius = scraper_input.radius
