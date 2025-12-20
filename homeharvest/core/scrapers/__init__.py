@@ -10,9 +10,9 @@ try:
     # curl_cffi.requests is compatible with requests API, but adapters come from standard requests
     from requests.adapters import HTTPAdapter
     USE_CURL_CFFI = True
-    # Try chrome120 (newer) - better TLS fingerprinting support
-    # Note: User-Agent is iOS mobile, but TLS fingerprint is Chrome (this is common for mobile apps)
-    DEFAULT_IMPERSONATE = "chrome120"  # Can also try: chrome116, chrome110, edge99, safari15_3
+    # Try safari15_3 to better match iOS User-Agent (Realtor.com mobile app)
+    # If this doesn't work, try: chrome120, chrome116, edge99
+    DEFAULT_IMPERSONATE = "safari15_3"  # Safari/iOS fingerprint to match mobile User-Agent
     # Log that curl_cffi is being used (only log once at module import)
     logger.info(f"[HOMEHARVEST] curl_cffi enabled with impersonate={DEFAULT_IMPERSONATE}")
 except ImportError as e:
