@@ -1,8 +1,18 @@
 from __future__ import annotations
 from typing import Union
 
-import requests
-from requests.adapters import HTTPAdapter
+# Try to use curl_cffi for TLS fingerprinting (anti-bot measures)
+try:
+    from curl_cffi import requests
+    from curl_cffi.requests.adapters import HTTPAdapter
+    USE_CURL_CFFI = True
+    DEFAULT_IMPERSONATE = "chrome110"  # Can also try: chrome116, chrome120, edge99
+except ImportError:
+    import requests
+    from requests.adapters import HTTPAdapter
+    USE_CURL_CFFI = False
+    DEFAULT_IMPERSONATE = None
+
 from urllib3.util.retry import Retry
 import uuid
 from ...exceptions import AuthenticationError
@@ -71,7 +81,10 @@ class Scraper:
         self.property_type = scraper_input.property_type
 
         if not self.session:
-            Scraper.session = requests.Session()
+            if USE_CURL_CFFI:
+                Scraper.session = requests.Session(impersonate=DEFAULT_IMPERSONATE)
+            else:
+                Scraper.session = requests.Session()
             retries = Retry(
                 total=3, backoff_factor=4, status_forcelist=[429], allowed_methods=frozenset(["GET", "POST"])
             )
