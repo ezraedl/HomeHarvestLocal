@@ -97,22 +97,26 @@ class Scraper:
         self.listing_type = scraper_input.listing_type
         self.property_type = scraper_input.property_type
 
-        # Initialize shared session if not already created
-        if not Scraper.session:
+        self.proxy = scraper_input.proxy
+        
+        # Create a fresh session per instance when using proxies (better for curl_cffi TLS fingerprinting)
+        # or use shared session when no proxy is needed
+        if self.proxy:
+            # Create a new session for this instance with proxy
             if USE_CURL_CFFI:
-                Scraper.session = requests.Session(impersonate=DEFAULT_IMPERSONATE)
-                # curl_cffi Session doesn't support mount() - it handles retries internally
-                # Retry configuration is handled differently in curl_cffi
-                logger.info(f"[HOMEHARVEST] Created curl_cffi session with impersonate={DEFAULT_IMPERSONATE}")
+                self.session = requests.Session(impersonate=DEFAULT_IMPERSONATE)
+                logger.info(f"[HOMEHARVEST] Created new curl_cffi session with impersonate={DEFAULT_IMPERSONATE} for proxy")
             else:
-                Scraper.session = requests.Session()
+                self.session = requests.Session()
                 retries = Retry(
                     total=3, backoff_factor=4, status_forcelist=[429], allowed_methods=frozenset(["GET", "POST"])
                 )
                 adapter = HTTPAdapter(max_retries=retries, pool_connections=10, pool_maxsize=20)
-                Scraper.session.mount("http://", adapter)
-                Scraper.session.mount("https://", adapter)
-            Scraper.session.headers.update(
+                self.session.mount("http://", adapter)
+                self.session.mount("https://", adapter)
+            
+            # Set headers
+            self.session.headers.update(
                 {
                     'Content-Type': 'application/json',
                     'apollographql-client-version': '26.11.1-26.11.1.1106489',
@@ -125,17 +129,40 @@ class Scraper:
                     'User-Agent': 'Realtor.com/26.11.1.1106489 CFNetwork/3860.200.71 Darwin/25.1.0',
                 }
             )
-        
-        # Set instance session to the shared class session
-        self.session = Scraper.session
-
-        self.proxy = scraper_input.proxy
-        if self.proxy:
+            
+            # Configure proxy
             proxies = {"http": self.proxy, "https": self.proxy}
             self.session.proxies.update(proxies)
             logger.info(f"[HOMEHARVEST] Session proxy configured: {self.proxy[:50]}... (session type: {type(self.session).__module__}.{type(self.session).__name__})")
         else:
-            logger.debug(f"[HOMEHARVEST] No proxy configured (session type: {type(self.session).__module__}.{type(self.session).__name__})")
+            # Use shared session when no proxy is needed
+            if not Scraper.session:
+                if USE_CURL_CFFI:
+                    Scraper.session = requests.Session(impersonate=DEFAULT_IMPERSONATE)
+                    logger.info(f"[HOMEHARVEST] Created shared curl_cffi session with impersonate={DEFAULT_IMPERSONATE}")
+                else:
+                    Scraper.session = requests.Session()
+                    retries = Retry(
+                        total=3, backoff_factor=4, status_forcelist=[429], allowed_methods=frozenset(["GET", "POST"])
+                    )
+                    adapter = HTTPAdapter(max_retries=retries, pool_connections=10, pool_maxsize=20)
+                    Scraper.session.mount("http://", adapter)
+                    Scraper.session.mount("https://", adapter)
+                Scraper.session.headers.update(
+                    {
+                        'Content-Type': 'application/json',
+                        'apollographql-client-version': '26.11.1-26.11.1.1106489',
+                        'Accept': '*/*',
+                        'Accept-Language': 'en-US,en;q=0.9',
+                        'rdc-client-version': '26.11.1',
+                        'X-APOLLO-OPERATION-TYPE': 'query',
+                        'rdc-client-name': 'RDC_NATIVE_MOBILE-iPhone-com.move.Realtor',
+                        'apollographql-client-name': 'com.move.Realtor-apollo-ios',
+                        'User-Agent': 'Realtor.com/26.11.1.1106489 CFNetwork/3860.200.71 Darwin/25.1.0',
+                    }
+                )
+            self.session = Scraper.session
+            logger.debug(f"[HOMEHARVEST] Using shared session (no proxy, session type: {type(self.session).__module__}.{type(self.session).__name__})")
 
         self.listing_type = scraper_input.listing_type
         self.radius = scraper_input.radius
