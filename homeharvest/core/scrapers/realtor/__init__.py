@@ -18,6 +18,7 @@ from typing import Dict, Union
 from tenacity import (
     retry,
     retry_if_exception_type,
+    retry_if_not_exception_type,
     wait_exponential,
     stop_after_attempt,
 )
@@ -1115,7 +1116,7 @@ class RealtorScraper(Scraper):
 
 
     @retry(
-        retry=retry_if_exception_type((JSONDecodeError, Exception)),
+        retry=retry_if_exception_type((JSONDecodeError, Exception)) & retry_if_not_exception_type(AuthenticationError),
         wait=wait_exponential(multiplier=1, min=1, max=10),
         stop=stop_after_attempt(3),
     )
@@ -1130,16 +1131,16 @@ class RealtorScraper(Scraper):
         property_ids = list(set(property_ids))
 
         fragments = "\n".join(
-            f'home_{property_id}: home(property_id: {property_id}) {{ ...HomeDetailsFragment }}'
+            f'home_{property_id}: home(property_id: {property_id}) {{ ...SearchFragment }}'
             for property_id in property_ids
         )
         query = f"""{HOME_FRAGMENT}
 
-query GetHomeDetails {{
+query GetHome {{
     {fragments}
 }}"""
 
-        data = self._graphql_post(query, {}, "GetHomeDetails")
+        data = self._graphql_post(query, {}, "GetHome")
 
         if "data" not in data or data["data"] is None:
             # If we got a 400 error with "Required parameter is missing", raise to trigger retry

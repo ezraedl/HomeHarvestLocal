@@ -52,6 +52,7 @@ except Exception as e:
 
 from urllib3.util.retry import Retry
 import uuid
+import secrets
 from ...exceptions import AuthenticationError
 from .models import Property, ListingType, SiteName, SearchPropertyType, ReturnType
 import json
@@ -145,7 +146,7 @@ class Scraper:
                     'Accept-Language': 'en-US,en;q=0.9',
                     'rdc-client-version': '26.11.1',
                     'X-APOLLO-OPERATION-TYPE': 'query',
-                    'X-APOLLO-OPERATION-ID': 'null',
+                    'X-APOLLO-OPERATION-ID': secrets.token_hex(32),
                     'rdc-client-name': 'RDC_NATIVE_MOBILE-iPhone-com.move.Realtor',
                     'apollographql-client-name': 'com.move.Realtor-apollo-ios',
                     'User-Agent': 'Realtor.com/26.11.1.1106489 CFNetwork/3860.200.71 Darwin/25.1.0',
