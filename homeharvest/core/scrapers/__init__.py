@@ -1,20 +1,40 @@
 from __future__ import annotations
 from typing import Union
+import random
 
 # Try to use curl_cffi for TLS fingerprinting (anti-bot measures)
 import logging
 logger = logging.getLogger(__name__)
+
+# List of impersonation profiles to rotate through for diversity
+# This prevents all requests from having the same TLS fingerprint
+IMPERSONATE_PROFILES = [
+    "chrome120",      # Latest Chrome - most common in real traffic
+    "chrome116",      # Stable Chrome - widely used
+    "chrome110",      # Older Chrome - less common in bots
+    "safari15_3",     # Safari - different fingerprint
+    "safari15_5",     # Newer Safari
+    "edge99",         # Edge - fallback option
+    "edge101",        # Newer Edge
+]
+
+def get_random_impersonate() -> str:
+    """
+    Get a random impersonation profile for diversity.
+    This helps avoid detection by using different TLS fingerprints.
+    """
+    return random.choice(IMPERSONATE_PROFILES)
 
 try:
     from curl_cffi import requests
     # curl_cffi.requests is compatible with requests API, but adapters come from standard requests
     from requests.adapters import HTTPAdapter
     USE_CURL_CFFI = True
-    # Try edge99 - sometimes less commonly blocked than Chrome/Safari
-    # If this doesn't work, try: chrome120, chrome116, safari15_3
-    DEFAULT_IMPERSONATE = "edge99"  # Edge browser fingerprint
+    # Use chrome120 as default - less flagged than edge99, more common in real traffic
+    # Individual sessions will use get_random_impersonate() for rotation
+    DEFAULT_IMPERSONATE = "chrome120"  # Default fallback (but prefer rotation)
     # Log that curl_cffi is being used (only log once at module import)
-    logger.info(f"[HOMEHARVEST] curl_cffi enabled with impersonate={DEFAULT_IMPERSONATE}")
+    logger.info(f"[HOMEHARVEST] curl_cffi enabled with impersonate rotation (default: {DEFAULT_IMPERSONATE})")
 except ImportError as e:
     import requests
     from requests.adapters import HTTPAdapter
@@ -104,8 +124,9 @@ class Scraper:
         if self.proxy:
             # Create a new session for this instance with proxy
             if USE_CURL_CFFI:
-                self.session = requests.Session(impersonate=DEFAULT_IMPERSONATE)
-                logger.info(f"[HOMEHARVEST] Created new curl_cffi session with impersonate={DEFAULT_IMPERSONATE} for proxy")
+                impersonate_profile = get_random_impersonate()
+                self.session = requests.Session(impersonate=impersonate_profile)
+                logger.info(f"[HOMEHARVEST] Created new curl_cffi session with impersonate={impersonate_profile} for proxy")
             else:
                 self.session = requests.Session()
                 retries = Retry(
@@ -139,8 +160,9 @@ class Scraper:
             # Use shared session when no proxy is needed
             if not Scraper.session:
                 if USE_CURL_CFFI:
-                    Scraper.session = requests.Session(impersonate=DEFAULT_IMPERSONATE)
-                    logger.info(f"[HOMEHARVEST] Created shared curl_cffi session with impersonate={DEFAULT_IMPERSONATE}")
+                    impersonate_profile = get_random_impersonate()
+                    Scraper.session = requests.Session(impersonate=impersonate_profile)
+                    logger.info(f"[HOMEHARVEST] Created shared curl_cffi session with impersonate={impersonate_profile}")
                 else:
                     Scraper.session = requests.Session()
                     retries = Retry(
@@ -157,6 +179,7 @@ class Scraper:
                         'Accept-Language': 'en-US,en;q=0.9',
                         'rdc-client-version': '26.11.1',
                         'X-APOLLO-OPERATION-TYPE': 'query',
+                        'X-APOLLO-OPERATION-ID': 'null',
                         'rdc-client-name': 'RDC_NATIVE_MOBILE-iPhone-com.move.Realtor',
                         'apollographql-client-name': 'com.move.Realtor-apollo-ios',
                         'User-Agent': 'Realtor.com/26.11.1.1106489 CFNetwork/3860.200.71 Darwin/25.1.0',
@@ -222,7 +245,8 @@ class Scraper:
         # Use curl_cffi session for TLS fingerprinting if available
         if USE_CURL_CFFI:
             # Create a temporary session with TLS fingerprinting for this request
-            with requests.Session(impersonate=DEFAULT_IMPERSONATE) as session:
+            impersonate_profile = get_random_impersonate()
+            with requests.Session(impersonate=impersonate_profile) as session:
                 response = session.post(
                     "https://graph.realtor.com/auth/token",
                     headers={

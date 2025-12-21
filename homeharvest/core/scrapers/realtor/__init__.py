@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import re
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from json import JSONDecodeError
@@ -70,6 +71,10 @@ class RealtorScraper(Scraper):
             "query": self._minify_query(query),
             "variables": variables,
         }
+
+        # Add small delay to avoid rate limiting (500ms)
+        # This helps prevent rapid-fire requests that trigger anti-bot measures
+        time.sleep(0.5)
 
         response = self.session.post(self.SEARCH_GQL_URL, data=json.dumps(payload, separators=(',', ':')))
 
