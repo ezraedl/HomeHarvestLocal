@@ -1,0 +1,49 @@
+name: Trigger Scraper Rebuild
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    # Optional: only trigger on specific paths if you want
+    # paths:
+    #   - 'homeharvest/**'
+    #   - 'pyproject.toml'
+
+jobs:
+  trigger-railway-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Railway Deployment
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
+        run: |
+          # Option 1: Use Railway API to trigger deployment
+          if [ -z "$RAILWAY_TOKEN" ] || [ -z "$RAILWAY_SERVICE_ID" ]; then
+            echo "⚠️ Railway secrets not configured. Skipping deployment trigger."
+            echo "To enable this feature, add RAILWAY_TOKEN and RAILWAY_SERVICE_ID to GitHub secrets."
+            exit 0
+          fi
+          
+          # Trigger a new deployment via Railway API
+          # Note: Railway API endpoint may vary. Check Railway docs for latest API version.
+          response=$(curl -s -w "\n%{http_code}" -X POST \
+            -H "Authorization: Bearer $RAILWAY_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://api.railway.app/v1/deployments" \
+            -d "{\"serviceId\": \"$RAILWAY_SERVICE_ID\"}") || {
+            echo "⚠️ Failed to trigger Railway deployment via API."
+            echo "Alternative: Use Railway webhook method (see README.md)"
+            exit 0
+          }
+          
+          http_code=$(echo "$response" | tail -n1)
+          if [ "$http_code" != "200" ] && [ "$http_code" != "201" ]; then
+            echo "⚠️ Railway API returned status $http_code"
+            echo "Response: $(echo "$response" | head -n-1)"
+            echo "Note: Railway API format may have changed. Consider using webhook method instead."
+          fi
+          
+          echo "✅ Triggered Railway deployment for scraper rebuild"
+

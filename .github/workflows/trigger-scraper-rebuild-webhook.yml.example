@@ -1,0 +1,35 @@
+name: Trigger Scraper Rebuild (Webhook Method)
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  trigger-railway-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Railway Deployment via Webhook
+        env:
+          RAILWAY_WEBHOOK_URL: ${{ secrets.RAILWAY_WEBHOOK_URL }}
+        run: |
+          if [ -z "$RAILWAY_WEBHOOK_URL" ]; then
+            echo "⚠️ RAILWAY_WEBHOOK_URL secret not configured."
+            echo "To enable this:"
+            echo "1. Go to Railway dashboard → Your scraper service → Settings → Webhooks"
+            echo "2. Create a new webhook and copy the URL"
+            echo "3. Add RAILWAY_WEBHOOK_URL to GitHub repository secrets"
+            exit 0
+          fi
+          
+          # Trigger deployment via webhook
+          curl -X POST "$RAILWAY_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d '{"reason": "HomeHarvestLocal updated"}' || {
+            echo "⚠️ Failed to trigger webhook"
+            exit 1
+          }
+          
+          echo "✅ Triggered Railway deployment via webhook"
+
