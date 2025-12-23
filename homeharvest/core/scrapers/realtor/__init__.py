@@ -30,7 +30,7 @@ from ..models import (
     ListingType,
     ReturnType
 )
-from .queries import GENERAL_RESULTS_QUERY, SEARCH_HOMES_DATA, HOMES_DATA, HOME_FRAGMENT, SEARCH_RESULTS_FRAGMENT, LISTING_PHOTOS_FRAGMENT, MORPHEUS_SUGGESTIONS_QUERY
+from .queries import GENERAL_RESULTS_QUERY, HOMES_DATA, SEARCH_SUGGESTIONS_QUERY
 from .processors import (
     process_property,
     process_extra_property_details,
@@ -39,7 +39,7 @@ from .processors import (
 
 
 class RealtorScraper(Scraper):
-    SEARCH_GQL_URL = "https://api.frontdoor.realtor.com/graphql"
+    SEARCH_GQL_URL = "https://www.realtor.com/frontdoor/graphql"
     NUM_PROPERTY_WORKERS = 20
     DEFAULT_PAGE_SIZE = 200
 
@@ -54,21 +54,18 @@ class RealtorScraper(Scraper):
 
     def _graphql_post(self, query: str, variables: dict, operation_name: str) -> dict:
         """
-        Execute a GraphQL query with operation-specific headers.
+        Execute a GraphQL query.
 
         Args:
             query: GraphQL query string (must include operationName matching operation_name param)
             variables: Query variables dictionary
-            operation_name: Name of the GraphQL operation for Apollo headers
+            operation_name: Name of the GraphQL operation
 
         Returns:
             Response JSON dictionary
         """
-        # Set operation-specific header (must match query's operationName)
-        self.session.headers['X-APOLLO-OPERATION-NAME'] = operation_name
-
         payload = {
-            "operationName": operation_name,  # Include in payload
+            "operationName": operation_name,
             "query": self._minify_query(query),
             "variables": variables,
         }
@@ -102,7 +99,7 @@ class RealtorScraper(Scraper):
             }
         }
 
-        response_json = self._graphql_post(MORPHEUS_SUGGESTIONS_QUERY, variables, "GetMorpheusSuggestions")
+        response_json = self._graphql_post(SEARCH_SUGGESTIONS_QUERY, variables, "Search_suggestions")
 
         if (
             response_json is None
@@ -134,9 +131,14 @@ class RealtorScraper(Scraper):
         }
 
         if geo.get("area_type") == "address":
-            geo_id = geo.get("_id", "")
-            if geo_id.startswith("addr:"):
-                result["mpr_id"] = geo_id.replace("addr:", "")
+            # Try to get mpr_id directly from API response first
+            if geo.get("mpr_id"):
+                result["mpr_id"] = geo.get("mpr_id")
+            else:
+                # Fallback: extract from _id field if it has addr: prefix
+                geo_id = geo.get("_id", "")
+                if geo_id.startswith("addr:"):
+                    result["mpr_id"] = geo_id.replace("addr:", "")
 
         return result
 
@@ -174,13 +176,10 @@ class RealtorScraper(Scraper):
     def handle_home(self, property_id: str) -> list[Property]:
         """Fetch single home with proper error handling."""
         query = (
-            """%s
-                query GetHomeDetails($property_id: ID!) {
-                    home(property_id: $property_id) {
-                        ...HomeDetailsFragment
-                    }
+            """query GetHomeDetails($property_id: ID!) {
+                    home(property_id: $property_id) %s
                 }"""
-            % HOME_FRAGMENT
+            % HOMES_DATA
         )
 
         variables = {"property_id": property_id}
@@ -427,9 +426,7 @@ class RealtorScraper(Scraper):
                             limit: 200
                             offset: $offset
                     ) %s
-                }
-                %s
-                %s""" % (
+                }""" % (
                 is_foreclosure,
                 status_param,
                 date_param,
@@ -438,13 +435,11 @@ class RealtorScraper(Scraper):
                 pending_or_contingent_param,
                 sort_param,
                 GENERAL_RESULTS_QUERY,
-                SEARCH_RESULTS_FRAGMENT,
-                LISTING_PHOTOS_FRAGMENT,
             )
         elif search_type == "area":  #: general search, came from a general location
             query = """query GetHomeSearch(
                                 $search_location: SearchLocation,
-                                $offset: Int,
+                                $offset: Int
                             ) {
                                 homeSearch: home_search(
                                     query: {
@@ -461,9 +456,7 @@ class RealtorScraper(Scraper):
                                     limit: 200
                                     offset: $offset
                                 ) %s
-                            }
-                            %s
-                            %s""" % (
+                            }""" % (
                 is_foreclosure,
                 status_param,
                 date_param,
@@ -473,8 +466,6 @@ class RealtorScraper(Scraper):
                 bucket_param,
                 sort_param,
                 GENERAL_RESULTS_QUERY,
-                SEARCH_RESULTS_FRAGMENT,
-                LISTING_PHOTOS_FRAGMENT,
             )
         else:  #: general search, came from an address
             query = (
@@ -489,10 +480,8 @@ class RealtorScraper(Scraper):
                             limit: 1
                             offset: $offset
                         ) %s
-                    }
-                    %s
-                    %s"""
-                % (GENERAL_RESULTS_QUERY, SEARCH_RESULTS_FRAGMENT, LISTING_PHOTOS_FRAGMENT)
+                    }"""
+                % GENERAL_RESULTS_QUERY
             )
 
         response_json = self._graphql_post(query, variables, "GetHomeSearch")
@@ -1131,12 +1120,10 @@ class RealtorScraper(Scraper):
         property_ids = list(set(property_ids))
 
         fragments = "\n".join(
-            f'home_{property_id}: home(property_id: {property_id}) {{ ...SearchFragment }}'
+            f'home_{property_id}: home(property_id: {property_id}) {HOMES_DATA}'
             for property_id in property_ids
         )
-        query = f"""{HOME_FRAGMENT}
-
-query GetHome {{
+        query = f"""query GetHome {{
     {fragments}
 }}"""
 

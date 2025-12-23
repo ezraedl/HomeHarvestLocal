@@ -1,5 +1,5 @@
 SEARCH_RESULTS_FRAGMENT = """
-fragment SearchFragment on SearchHome {
+fragment PropertyResult on SearchHome {
     __typename
     pending_date
     listing_id
@@ -371,7 +371,7 @@ _SEARCH_HOMES_DATA_BASE = """{
 
 
 HOME_FRAGMENT = """
-fragment SearchFragment on Home {
+fragment PropertyResult on Home {
     __typename
     pending_date
     listing_id
@@ -689,12 +689,8 @@ GENERAL_RESULTS_QUERY = """{
                             __typename
                             count
                             total
-                            results {
-                                __typename
-                                ...SearchFragment
-                                ...ListingPhotosFragment
-                            }
-                        }"""
+                            results %s
+                        }""" % SEARCH_HOMES_DATA
 
 LISTING_PHOTOS_FRAGMENT = """
 fragment ListingPhotosFragment on SearchHome {
@@ -712,4 +708,98 @@ fragment ListingPhotosFragment on SearchHome {
 }
 """
 
-MORPHEUS_SUGGESTIONS_QUERY = """query GetMorpheusSuggestions($searchInput: SearchSuggestionsInput!) { search_suggestions(search_input: $searchInput) { __typename geo_results { __typename type text geo { __typename _id _score mpr_id area_type city state_code postal_code country lat lon county counties { __typename name fips state_code } slug_id geo_id score name city_slug_id centroid { __typename lat lon } county_needed_for_uniq street line school school_id school_district school_district_id has_catchment university university_id neighborhood park } } no_matches has_results filter_criteria { __typename property_type { __typename type } price { __typename min max pattern } bed { __typename min max pattern } bath { __typename min max pattern } feature_tags { __typename tags } listing_status { __typename new_construction existing_homes foreclosures recently_sold fifty_five_plus open_house hide_new_construction hide_existing_homes hide_foreclosures hide_recently_sold hide_fifty_five_plus hide_open_house virtual_tour three_d_tour contingent hide_contingent pending hide_pending } keyword { __typename keywords } garage { __typename min max pattern } age { __typename min max pattern } stories { __typename min max pattern } lot_size { __typename min max pattern } square_feet { __typename min max pattern } home_size { __typename min max pattern } basement finished_basement pool waterfront fireplace detached_garage expand { __typename radius } hoa { __typename type fee } } message_data { __typename property_type pool waterfront fireplace basement finished_basement detached_garage listing_status { __typename new_construction existing_homes foreclosures recently_sold fifty_five_plus open_house hide_new_construction hide_existing_homes hide_foreclosures hide_recently_sold hide_fifty_five_plus hide_open_house } keywords price { __typename min max pattern } bed { __typename min max pattern } bath { __typename min max pattern } garage { __typename min max pattern } stories { __typename min max pattern } age { __typename min max pattern } lot_size { __typename min max pattern } square_feet { __typename min max pattern } } original_string morpheus_context } }"""
+SEARCH_SUGGESTIONS_QUERY = """query Search_suggestions($searchInput: SearchSuggestionsInput!) {
+  search_suggestions(search_input: $searchInput) {
+    raw_input_parser_result
+    typeahead_results {
+      display_string
+      display_geo
+      geo {
+        _id
+        _score
+        mpr_id
+        area_type
+        city
+        state_code
+        state
+        postal_code
+        country
+        lat
+        lon
+        county
+        counties {
+          name
+          fips
+          state_code
+        }
+        slug_id
+        geo_id
+        score
+        name
+        city_slug_id
+        centroid {
+          lat
+          lon
+        }
+        county_needed_for_uniq
+        street
+        line
+        school
+        school_id
+        school_district
+        has_catchment
+        university
+        university_id
+        neighborhood
+        park
+      }
+      url
+    }
+    geo_results {
+      type
+      text
+      geo {
+        _id
+        _score
+        mpr_id
+        area_type
+        city
+        state_code
+        state
+        postal_code
+        country
+        lat
+        lon
+        county
+        counties {
+          name
+          fips
+          state_code
+        }
+        slug_id
+        geo_id
+        score
+        name
+        city_slug_id
+        centroid {
+          lat
+          lon
+        }
+        county_needed_for_uniq
+        street
+        line
+        school
+        school_id
+        school_district
+        has_catchment
+        university
+        university_id
+        neighborhood
+        park
+      }
+    }
+    no_matches
+    has_results
+    original_string
+  }
+}"""
