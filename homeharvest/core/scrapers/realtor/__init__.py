@@ -8,6 +8,7 @@ This module implements the scraper for realtor.com
 from __future__ import annotations
 
 import json
+import random
 import re
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -72,9 +73,11 @@ class RealtorScraper(Scraper):
             "variables": variables,
         }
 
-        # Add small delay to avoid rate limiting (500ms)
+        # Add randomized delay to avoid rate limiting (1-2 seconds)
         # This helps prevent rapid-fire requests that trigger anti-bot measures
-        time.sleep(0.5)
+        # Randomization makes the pattern less detectable
+        delay = random.uniform(1.0, 2.0)
+        time.sleep(delay)
 
         response = self.session.post(self.SEARCH_GQL_URL, data=json.dumps(payload, separators=(',', ':')))
 

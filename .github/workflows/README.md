@@ -7,16 +7,19 @@ This workflow automatically triggers a rebuild of the `real-estate-crm-scraper` 
 ### Method 1: Railway API (Current Implementation)
 
 1. **Get Railway Token:**
+
    - Go to Railway dashboard: https://railway.app/account/tokens
    - Create a new token with deployment permissions
    - Copy the token
 
 2. **Get Railway Service ID:**
+
    - Go to your scraper service in Railway dashboard
    - Check the service settings or use Railway CLI: `railway service`
    - The service ID is in the URL or settings
 
 3. **Add GitHub Secrets:**
+
    - Go to your HomeHarvestLocal GitHub repository
    - Navigate to: Settings → Secrets and variables → Actions
    - Add the following secrets:
@@ -33,13 +36,16 @@ This workflow automatically triggers a rebuild of the `real-estate-crm-scraper` 
 If the API method doesn't work, you can use Railway webhooks:
 
 1. **Create Railway Webhook:**
+
    - In Railway dashboard, go to your scraper service
    - Navigate to Settings → Webhooks
    - Create a new webhook
    - Copy the webhook URL
 
 2. **Update the workflow:**
+
    - Replace the Railway API call with a simple webhook POST:
+
    ```yaml
    curl -X POST "${{ secrets.RAILWAY_WEBHOOK_URL }}"
    ```
@@ -50,12 +56,14 @@ If the API method doesn't work, you can use Railway webhooks:
 ### Method 3: Manual Trigger (Simplest)
 
 If you prefer manual control, you can:
+
 - Go to Railway dashboard → Your scraper service → Deployments → Redeploy
 - Or use Railway CLI: `railway up` in the scraper directory
 
 ## How It Works
 
 When you push changes to HomeHarvestLocal:
+
 1. GitHub Actions workflow triggers
 2. It calls Railway API/webhook to start a new deployment
 3. Railway rebuilds the scraper (which reinstalls dependencies including the updated HomeHarvestLocal)
@@ -66,4 +74,3 @@ When you push changes to HomeHarvestLocal:
 - Railway automatically detects git dependency changes when rebuilding
 - Since you're using `git+https://github.com/ezraedl/HomeHarvestLocal.git@master`, Railway will fetch the latest commit from master branch
 - The rebuild ensures the scraper uses the updated HomeHarvestLocal code
-
