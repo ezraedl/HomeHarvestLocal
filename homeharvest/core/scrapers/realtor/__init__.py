@@ -71,10 +71,10 @@ class RealtorScraper(Scraper):
             "variables": variables,
         }
 
-        # Add randomized delay to avoid rate limiting (1-2 seconds)
-        # This helps prevent rapid-fire requests that trigger anti-bot measures
-        # Randomization makes the pattern less detectable
-        delay = random.uniform(1.0, 2.0)
+        # Add randomized delay to avoid rate limiting (3-8 seconds)
+        # Increased delay to make requests look more human-like
+        # Humans don't make requests instantly - they read, think, scroll
+        delay = random.uniform(3.0, 8.0)
         time.sleep(delay)
 
         response = self.session.post(self.SEARCH_GQL_URL, data=json.dumps(payload, separators=(',', ':')))
