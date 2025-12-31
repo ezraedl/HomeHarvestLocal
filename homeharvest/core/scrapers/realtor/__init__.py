@@ -11,8 +11,8 @@ import json
 import random
 import re
 import time
+import requests
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime
 from json import JSONDecodeError
 from typing import Dict, Union
 
@@ -24,7 +24,7 @@ from tenacity import (
     stop_after_attempt,
 )
 
-from .. import Scraper
+from .. import Scraper, DEFAULT_HEADERS
 from ....exceptions import AuthenticationError
 from ..models import (
     Property,
@@ -78,6 +78,12 @@ class RealtorScraper(Scraper):
         time.sleep(delay)
 
         response = self.session.post(self.SEARCH_GQL_URL, data=json.dumps(payload, separators=(',', ':')))
+        response = requests.post(
+            self.SEARCH_GQL_URL,
+            headers=DEFAULT_HEADERS,
+            data=json.dumps(payload, separators=(',', ':')),
+            proxies=self.proxies
+        )
 
         if response.status_code == 403:
             if not self.proxy:

@@ -50,12 +50,33 @@ except Exception as e:
     DEFAULT_IMPERSONATE = None
     logger.error(f"[HOMEHARVEST] curl_cffi import failed with unexpected error: {type(e).__name__}: {str(e)}. Falling back to standard requests library.")
 
-from urllib3.util.retry import Retry
+import requests
 import uuid
 from ...exceptions import AuthenticationError
 from .models import Property, ListingType, SiteName, SearchPropertyType, ReturnType
 import json
 from pydantic import BaseModel
+
+
+DEFAULT_HEADERS = {
+    'Content-Type': 'application/json',
+    'Accept': '*/*',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Cache-Control': 'no-cache',
+    'Origin': 'https://www.realtor.com',
+    'Pragma': 'no-cache',
+    'Referer': 'https://www.realtor.com/',
+    'rdc-client-name': 'RDC_WEB_SRP_FS_PAGE',
+    'rdc-client-version': '3.0.2515',
+    'sec-ch-ua': '"Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-site',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36',
+    'x-is-bot': 'false',
+}
 
 
 class ScraperInput(BaseModel):
@@ -107,8 +128,6 @@ class ScraperInput(BaseModel):
 
 
 class Scraper:
-    session = None
-
     def __init__(
         self,
         scraper_input: ScraperInput,
@@ -202,6 +221,8 @@ class Scraper:
                 )
             self.session = Scraper.session
             logger.debug(f"[HOMEHARVEST] Using shared session (no proxy, session type: {type(self.session).__module__}.{type(self.session).__name__})")
+        self.proxy = scraper_input.proxy
+        self.proxies = {"http": self.proxy, "https": self.proxy} if self.proxy else None
 
         self.listing_type = scraper_input.listing_type
         self.radius = scraper_input.radius
@@ -212,7 +233,7 @@ class Scraper:
         self.date_from_precision = scraper_input.date_from_precision
         self.date_to_precision = scraper_input.date_to_precision
         self.foreclosure = scraper_input.foreclosure
-        self.extra_property_data = scraper_input.extra_property_data
+        self.extra_property_data = False  # TODO: temporarily disabled
         self.exclude_pending = scraper_input.exclude_pending
         self.limit = scraper_input.limit
         self.offset = scraper_input.offset
