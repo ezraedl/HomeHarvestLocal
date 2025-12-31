@@ -5,10 +5,10 @@ on:
     branches:
       - master
       - main
-    # Optional: only trigger on specific paths if you want
-    # paths:
-    #   - 'homeharvest/**'
-    #   - 'pyproject.toml'
+    # Only trigger on changes to relevant files
+    paths:
+      - "homeharvest/**"
+      - "pyproject.toml"
 
 jobs:
   trigger-railway-deploy:
@@ -17,33 +17,51 @@ jobs:
       - name: Trigger Railway Deployment
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_PROJECT_ID: ${{ secrets.RAILWAY_PROJECT_ID }}
           RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
         run: |
-          # Option 1: Use Railway API to trigger deployment
-          if [ -z "$RAILWAY_TOKEN" ] || [ -z "$RAILWAY_SERVICE_ID" ]; then
-            echo "⚠️ Railway secrets not configured. Skipping deployment trigger."
-            echo "To enable this feature, add RAILWAY_TOKEN and RAILWAY_SERVICE_ID to GitHub secrets."
-            exit 0
+          echo "🔄 Triggering Railway deployment for scraper service..."
+          echo "   HomeHarvestLocal updated: ${{ github.sha }}"
+          echo "   Commit message: ${{ github.event.head_commit.message }}"
+
+          # Validate required secrets
+          if [ -z "$RAILWAY_TOKEN" ] || [ -z "$RAILWAY_PROJECT_ID" ] || [ -z "$RAILWAY_SERVICE_ID" ]; then
+            echo "⚠️ Railway secrets not fully configured."
+            echo "   Required: RAILWAY_TOKEN, RAILWAY_PROJECT_ID, RAILWAY_SERVICE_ID"
+            echo "   Missing: $([ -z "$RAILWAY_TOKEN" ] && echo 'RAILWAY_TOKEN ') $([ -z "$RAILWAY_PROJECT_ID" ] && echo 'RAILWAY_PROJECT_ID ') $([ -z "$RAILWAY_SERVICE_ID" ] && echo 'RAILWAY_SERVICE_ID ')"
+            exit 1
           fi
-          
+
+          echo "   Using Service ID: $RAILWAY_SERVICE_ID"
+          echo "   Using Project ID: $RAILWAY_PROJECT_ID"
+
           # Trigger a new deployment via Railway API
-          # Note: Railway API endpoint may vary. Check Railway docs for latest API version.
+          # Railway API v1: POST /v1/services/{serviceId}/deployments
           response=$(curl -s -w "\n%{http_code}" -X POST \
             -H "Authorization: Bearer $RAILWAY_TOKEN" \
             -H "Content-Type: application/json" \
-            "https://api.railway.app/v1/deployments" \
-            -d "{\"serviceId\": \"$RAILWAY_SERVICE_ID\"}") || {
-            echo "⚠️ Failed to trigger Railway deployment via API."
-            echo "Alternative: Use Railway webhook method (see README.md)"
-            exit 0
+            "https://api.railway.app/v1/services/$RAILWAY_SERVICE_ID/deployments" \
+            -d '{
+              "environmentId": null
+            }') || {
+            echo "❌ Failed to trigger Railway deployment via API."
+            exit 1
           }
-          
-          http_code=$(echo "$response" | tail -n1)
-          if [ "$http_code" != "200" ] && [ "$http_code" != "201" ]; then
-            echo "⚠️ Railway API returned status $http_code"
-            echo "Response: $(echo "$response" | head -n-1)"
-            echo "Note: Railway API format may have changed. Consider using webhook method instead."
-          fi
-          
-          echo "✅ Triggered Railway deployment for scraper rebuild"
 
+          http_code=$(echo "$response" | tail -n1)
+          response_body=$(echo "$response" | sed '$d')
+
+          if [ "$http_code" = "200" ] || [ "$http_code" = "201" ]; then
+            echo "✅ Successfully triggered Railway deployment (HTTP $http_code)"
+            echo "$response_body" | jq '.' 2>/dev/null || echo "$response_body"
+          else
+            echo "❌ Railway API returned status $http_code"
+            echo "Response: $response_body"
+            echo ""
+            echo "Troubleshooting:"
+            echo "  1. Verify RAILWAY_TOKEN has deployment permissions"
+            echo "  2. Verify RAILWAY_SERVICE_ID is correct"
+            echo "  3. Verify RAILWAY_PROJECT_ID is correct"
+            echo "  4. Check Railway API documentation for changes"
+            exit 1
+          fi
