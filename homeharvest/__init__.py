@@ -11,9 +11,6 @@ from .core.scrapers.realtor import RealtorScraper
 from .core.scrapers.models import ListingType, SearchPropertyType, ReturnType, Property
 from typing import Union, Optional, List
 
-
-
-
 def scrape_property(
     location: str,
     listing_type: str | list[str] | None = None,
