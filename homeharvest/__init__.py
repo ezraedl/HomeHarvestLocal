@@ -12,6 +12,7 @@ from .core.scrapers.models import ListingType, SearchPropertyType, ReturnType, P
 from typing import Union, Optional, List
 
 
+
 def scrape_property(
     location: str,
     listing_type: str | list[str] | None = None,
