@@ -35,33 +35,60 @@ jobs:
           echo "   Using Service ID: $RAILWAY_SERVICE_ID"
           echo "   Using Project ID: $RAILWAY_PROJECT_ID"
 
-          # Trigger a new deployment via Railway API
-          # Railway API v1: POST /v1/services/{serviceId}/deployments
-          response=$(curl -s -w "\n%{http_code}" -X POST \
-            -H "Authorization: Bearer $RAILWAY_TOKEN" \
-            -H "Content-Type: application/json" \
-            "https://api.railway.app/v1/services/$RAILWAY_SERVICE_ID/deployments" \
-            -d '{
-              "environmentId": null
-            }') || {
-            echo "❌ Failed to trigger Railway deployment via API."
+          # Method: Create empty commit in scraper repo to trigger Railway
+          # Railway watches the git repo, so pushing an empty commit will trigger a deployment
+          SCRAPER_REPO="ezraedl/real-estate-crm-scraper"
+          BRANCH="main"
+
+          echo "Setting up git..."
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          echo "Cloning scraper repository..."
+          # Use SCRAPER_REPO_TOKEN if available, otherwise use GITHUB_TOKEN
+          SCRAPER_TOKEN="${{ secrets.SCRAPER_REPO_TOKEN }}"
+          if [ -z "$SCRAPER_TOKEN" ]; then
+            echo "SCRAPER_REPO_TOKEN not set, using GITHUB_TOKEN"
+            SCRAPER_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+          else
+            echo "Using SCRAPER_REPO_TOKEN for authentication"
+          fi
+
+          git clone "https://x-access-token:${SCRAPER_TOKEN}@github.com/$SCRAPER_REPO.git" scraper-repo || {
+            echo "❌ Failed to clone scraper repository"
+            echo "   If using GITHUB_TOKEN, ensure:"
+            echo "   1. The scraper repo is public, OR"
+            echo "   2. Both repos are in the same organization, OR"
+            echo "   3. Add SCRAPER_REPO_TOKEN secret (GitHub PAT with repo access)"
             exit 1
           }
 
-          http_code=$(echo "$response" | tail -n1)
-          response_body=$(echo "$response" | sed '$d')
+          cd scraper-repo
 
-          if [ "$http_code" = "200" ] || [ "$http_code" = "201" ]; then
-            echo "✅ Successfully triggered Railway deployment (HTTP $http_code)"
-            echo "$response_body" | jq '.' 2>/dev/null || echo "$response_body"
-          else
-            echo "❌ Railway API returned status $http_code"
-            echo "Response: $response_body"
-            echo ""
-            echo "Troubleshooting:"
-            echo "  1. Verify RAILWAY_TOKEN has deployment permissions"
-            echo "  2. Verify RAILWAY_SERVICE_ID is correct"
-            echo "  3. Verify RAILWAY_PROJECT_ID is correct"
-            echo "  4. Check Railway API documentation for changes"
+          # Checkout the correct branch
+          git checkout $BRANCH || git checkout -b $BRANCH
+
+          # Set remote URL with token for push
+          git remote set-url origin "https://x-access-token:${SCRAPER_TOKEN}@github.com/$SCRAPER_REPO.git"
+
+          # Create empty commit to trigger Railway deployment
+          echo "Creating empty commit to trigger Railway deployment..."
+          git commit --allow-empty -m "chore: trigger rebuild - HomeHarvestLocal updated
+
+          HomeHarvestLocal commit: ${{ github.sha }}
+          Triggered by: ${{ github.event.head_commit.message }}
+          Workflow: ${{ github.workflow }}
+          Run: ${{ github.run_id }}" || {
+            echo "⚠️ No changes to commit (this is expected for empty commit)"
+          }
+
+          echo "Pushing to trigger Railway deployment..."
+          git push origin $BRANCH && {
+            echo "✅ Successfully pushed empty commit"
+            echo "   Railway should detect the push and start a new deployment"
+            echo "   Check your Railway dashboard for deployment status"
+          } || {
+            echo "❌ Failed to push to scraper repository"
+            echo "   Check that GITHUB_TOKEN has write permissions"
             exit 1
-          fi
+          }
