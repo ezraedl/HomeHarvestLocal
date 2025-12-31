@@ -30,10 +30,12 @@ In the **HomeHarvestLocal** repository:
 ### 3. How It Works
 
 When you push to the `master` or `main` branch of HomeHarvestLocal with changes to:
+
 - `homeharvest/**` files
 - `pyproject.toml`
 
 The workflow will:
+
 1. Use Railway API to trigger a new deployment of the scraper service
 2. If API method fails, fallback to creating an empty commit in the scraper repo (requires `SCRAPER_REPO_TOKEN`)
 
@@ -47,16 +49,18 @@ The workflow will:
 ### 5. Troubleshooting
 
 **Workflow not triggering:**
+
 - Check that you're pushing to `master` or `main` branch
 - Verify the changed files match the paths filter
 
 **Railway deployment not starting:**
+
 - Verify all three Railway secrets are set correctly
 - Check Railway API token has deployment permissions
 - Verify Service ID is correct
 
 **Fallback method not working:**
+
 - Ensure `SCRAPER_REPO_TOKEN` is set
 - Token needs `repo` scope
 - Verify Railway is watching the scraper repo for pushes
-

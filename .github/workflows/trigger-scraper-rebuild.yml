@@ -13,6 +13,8 @@ on:
 jobs:
   trigger-railway-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to push commits
     steps:
       - name: Trigger Railway Deployment
         env:
@@ -45,21 +47,32 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           echo "Cloning scraper repository..."
-          # Use SCRAPER_REPO_TOKEN if available, otherwise use GITHUB_TOKEN
+          # Use SCRAPER_REPO_TOKEN if available (required for cross-repo access)
+          # GITHUB_TOKEN only works for the same repo, not cross-repo
           SCRAPER_TOKEN="${{ secrets.SCRAPER_REPO_TOKEN }}"
           if [ -z "$SCRAPER_TOKEN" ]; then
-            echo "SCRAPER_REPO_TOKEN not set, using GITHUB_TOKEN"
-            SCRAPER_TOKEN="${{ secrets.GITHUB_TOKEN }}"
+            echo "⚠️ SCRAPER_REPO_TOKEN not set!"
+            echo ""
+            echo "❌ Cannot push to scraper repository without SCRAPER_REPO_TOKEN"
+            echo ""
+            echo "📋 To fix this, create a GitHub Personal Access Token:"
+            echo "   1. Go to: https://github.com/settings/tokens"
+            echo "   2. Click 'Generate new token (classic)'"
+            echo "   3. Select scope: 'repo' (Full control of private repositories)"
+            echo "   4. Generate and copy the token"
+            echo "   5. Add it as a secret named 'SCRAPER_REPO_TOKEN' in this repo:"
+            echo "      Settings → Secrets and variables → Actions → New repository secret"
+            echo ""
+            echo "💡 GITHUB_TOKEN cannot write to other repositories."
+            echo "   You must use a Personal Access Token for cross-repo access."
+            exit 1
           else
-            echo "Using SCRAPER_REPO_TOKEN for authentication"
+            echo "✅ Using SCRAPER_REPO_TOKEN for authentication"
           fi
 
           git clone "https://x-access-token:${SCRAPER_TOKEN}@github.com/$SCRAPER_REPO.git" scraper-repo || {
             echo "❌ Failed to clone scraper repository"
-            echo "   If using GITHUB_TOKEN, ensure:"
-            echo "   1. The scraper repo is public, OR"
-            echo "   2. Both repos are in the same organization, OR"
-            echo "   3. Add SCRAPER_REPO_TOKEN secret (GitHub PAT with repo access)"
+            echo "   Check that SCRAPER_REPO_TOKEN has access to: $SCRAPER_REPO"
             exit 1
           }
 
