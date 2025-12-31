@@ -50,8 +50,10 @@ except Exception as e:
     DEFAULT_IMPERSONATE = None
     logger.error(f"[HOMEHARVEST] curl_cffi import failed with unexpected error: {type(e).__name__}: {str(e)}. Falling back to standard requests library.")
 
-import requests
+# Note: requests is already imported above (either curl_cffi.requests or standard requests)
+# Do NOT import requests here as it would overwrite curl_cffi.requests
 import uuid
+from urllib3.util.retry import Retry
 from ...exceptions import AuthenticationError
 from .models import Property, ListingType, SiteName, SearchPropertyType, ReturnType
 import json
