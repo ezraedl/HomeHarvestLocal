@@ -70,11 +70,173 @@ class PropwireScraper(Scraper):
 
     def __init__(self, scraper_input):
         super().__init__(scraper_input)
-        # Initialize Redis client if available (only once)
-        self._init_redis_if_available()
-        # Propwire requires session establishment (unlike Realtor which can work without it)
-        # Establish session by visiting the site first to get cookies
-        self._establish_session()
+        self.properties = []
+
+    def search(self):
+        """
+        Perform the search using DOM scraping with Playwright.
+        """
+        import logging
+        logger = logging.getLogger(__name__)
+        from playwright.sync_api import sync_playwright
+
+        logger.info(f"Starting Propwire DOM search for: {self.location}")
+
+        with sync_playwright() as p:
+            # 1. Launch Browser (Stealth)
+            launch_options = {
+                'headless': True,
+                'args': [
+                    '--disable-blink-features=AutomationControlled',
+                    '--disable-extensions',
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-infobars',
+                    '--window-position=0,0',
+                    '--ignore-certifcate-errors',
+                    '--ignore-certifcate-errors-spki-list',
+                    '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                ]
+            }
+
+            if self.proxy:
+                from urllib.parse import urlparse
+                parsed = urlparse(self.proxy)
+                launch_options['proxy'] = {
+                    'server': f"{parsed.scheme}://{parsed.hostname}:{parsed.port}",
+                    'username': parsed.username,
+                    'password': parsed.password,
+                } if parsed.username else {
+                    'server': self.proxy
+                }
+
+            browser = p.chromium.launch(**launch_options)
+            
+            # 2. Context with Stealth Scripts
+            context = browser.new_context(
+                viewport={'width': 1920, 'height': 1080},
+                user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                locale='en-US',
+                timezone_id='America/New_York',
+            )
+            context.add_init_script("""
+                Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+                window.chrome = { runtime: {} };
+                const originalQuery = window.navigator.permissions.query;
+                window.navigator.permissions.query = (parameters) => (
+                    parameters.name === 'notifications' ? Promise.resolve({ state: Notification.permission }) : originalQuery(parameters)
+                );
+            """)
+
+            try:
+                page = context.new_page()
+                
+                # 3. Navigate to Search
+                logger.debug("Navigating to propwire.com/search...")
+                page.goto('https://propwire.com/search', wait_until='domcontentloaded', timeout=60000)
+                
+                # 4. Input Location
+                logger.debug(f"Typing location: {self.location}")
+                # Wait for input
+                try:
+                    page.wait_for_selector('input[placeholder="City, County, Zip, or Address"]', timeout=10000)
+                    page.fill('input[placeholder="City, County, Zip, or Address"]', self.location)
+                except:
+                    # Retry with generic input selector if specific placeholder fails
+                    page.wait_for_selector('input[type="text"]', timeout=10000)
+                    page.fill('input[type="text"]', self.location)
+
+                # 5. Select from Autocomplete
+                page.wait_for_timeout(2000) # Wait for suggestions
+                page.keyboard.press("ArrowDown")
+                page.keyboard.press("Enter")
+
+                # 6. Wait for Results
+                logger.debug("Waiting for results to load...")
+                # Wait for the property list container or items
+                # Inspecting typical behavior: there is usually a list of property cards
+                # We'll wait for a common container class or just wait for network idle
+                page.wait_for_timeout(5000) 
+                
+                # Check for "No results" or results
+                # We can try to scroll to load more if needed, but for now just scrape first batch
+                
+                # 7. Extract Data from DOM
+                # Use evaluate to extract data structure from the page
+                logger.debug("Extracting property data from DOM...")
+                
+                properties_data = page.evaluate("""() => {
+                    const results = [];
+                    // Try to find property cards. Selectors might need adjustment based on site inspection.
+                    // Assuming standard list structure. If classes are obfuscated, we might need robust selectors.
+                    // Strategy: Look for elements that look like property cards (price, address)
+                    
+                    // Propwire specific: look for the list items
+                    const cards = document.querySelectorAll('.results-list-item, [class*="PropertyCard"]');
+                    
+                    if (cards.length === 0) {
+                         // Fallback: look for generic list items with price info
+                         const genericCards = Array.from(document.querySelectorAll('div')).filter(d => d.innerText.includes('$') && d.innerText.includes('SqFt'));
+                         // This is risky, but better than nothing if specific classes fail.
+                         // Let's rely on the user testing/feedback for selector refinement.
+                         return [];
+                    }
+
+                    cards.forEach(card => {
+                        try {
+                            const text = card.innerText;
+                            const priceMatch = text.match(/\\$[0-9,]+/);
+                            const price = priceMatch ? parseInt(priceMatch[0].replace(/[$,]/g, '')) : null;
+                            
+                            // Address usually at the top or bold
+                            // Simple extraction: split by newlines
+                            const lines = text.split('\\n').filter(l => l.trim().length > 0);
+                            const address = lines[0] || ""; # Heuristic
+                            
+                            results.push({
+                                address: address,
+                                price: price,
+                                raw: text
+                            });
+                        } catch (e) {}
+                    });
+                    return results;
+                }""")
+                
+                logger.info(f"Found {len(properties_data)} raw property elements")
+                
+                # Convert to Property objects
+                from ..models import Property, ListingType
+                for p_data in properties_data:
+                    try:
+                        # Basic parsing logic - can be improved
+                        prop = Property(
+                            street_address=p_data.get('address'),
+                            city=self.location, # Fallback
+                            state="IN", # Fallback, should parse from address
+                            zip_code=self.location if self.location.isdigit() else None,
+                            price=p_data.get('price'),
+                            listing_type=ListingType.FOR_SALE # Default
+                        )
+                        self.properties.append(prop)
+                    except Exception as e:
+                        logger.warning(f"Failed to parse property: {e}")
+
+            except Exception as e:
+                logger.error(f"DOM scraping failed: {e}")
+                # Take screenshot for debugging?
+                try:
+                    page.screenshot(path="debug_dom_fail.png")
+                except: pass
+                raise e
+            finally:
+                browser.close()
+        
+        return self.properties
+
+    def handle_location(self):
+        # No-op in DOM scraper as location is handled in search interaction
+        pass
     
     @classmethod
     def _init_redis_if_available(cls):
@@ -263,24 +425,64 @@ class PropwireScraper(Scraper):
                 self._cache_cookies(datadome_cookies)
                 
                 # Step 4: Inject cookies into session
+                # Remove metadata before injection
+                cookie_metadata = datadome_cookies.pop('_metadata', {})
                 logger.debug(f"Injecting {len(datadome_cookies)} cookies into session")
                 
-                # Use update which is simpler and often more effective
-                self.session.cookies.update(datadome_cookies)
+                # Inject cookies with proper domain/path information
+                for name, value in datadome_cookies.items():
+                    metadata = cookie_metadata.get(name, {})
+                    domain = metadata.get('domain', '.propwire.com')
+                    path = metadata.get('path', '/')
+                    secure = metadata.get('secure', True)
+                    
+                    # Set cookie with proper domain and path
+                    try:
+                        self.session.cookies.set(name, value, domain=domain, path=path)
+                        # Also set for common domain variations to ensure coverage
+                        if name == 'datadome':
+                            # Set for all possible domains
+                            for alt_domain in ['.propwire.com', 'propwire.com', '.api.propwire.com', 'api.propwire.com']:
+                                try:
+                                    self.session.cookies.set(name, value, domain=alt_domain, path=path)
+                                except Exception:
+                                    pass
+                    except Exception as e:
+                        logger.debug(f"Could not set cookie {name} with domain {domain}: {e}")
+                        # Fallback: try simple update
+                        try:
+                            self.session.cookies.set(name, value)
+                        except Exception:
+                            pass
                 
-                # Explicitly set datadome cookie if present ensuring domain is covered
-                if 'datadome' in datadome_cookies:
-                    self.session.cookies.set('datadome', datadome_cookies['datadome'], domain='.propwire.com')
-                    self.session.cookies.set('datadome', datadome_cookies['datadome'], domain='propwire.com')
-                    self.session.cookies.set('datadome', datadome_cookies['datadome'], domain='.api.propwire.com')
+                # Also try update as fallback for any cookies that didn't get set
+                try:
+                    self.session.cookies.update(datadome_cookies)
+                except Exception as e:
+                    logger.debug(f"Cookie update fallback failed: {e}")
 
                 # Verify cookies were set
-                cookie_names = [c.name for c in self.session.cookies if hasattr(c, 'name')]
+                # curl_cffi sessions use RequestsCookieJar which supports .keys() and direct access
+                try:
+                    cookie_names = list(self.session.cookies.keys())
+                except (AttributeError, TypeError):
+                    # Fallback: try to get cookie names from cookie objects
+                    cookie_names = [c.name for c in self.session.cookies if hasattr(c, 'name')]
+                
                 logger.debug(f"Cookies in session after injection: {cookie_names}")
                 if 'datadome' in cookie_names:
                     logger.info("DataDome cookie successfully injected into session")
                 else:
                     logger.warning("DataDome cookie NOT found in session after injection!")
+                    # Try alternative verification: check if cookie value is accessible
+                    try:
+                        datadome_value = self.session.cookies.get('datadome')
+                        if datadome_value:
+                            logger.info(f"DataDome cookie value found via .get() method (length: {len(str(datadome_value))})")
+                        else:
+                            logger.warning("DataDome cookie value is None or empty")
+                    except Exception as e:
+                        logger.debug(f"Could not verify cookie via .get(): {e}")
                 
                 # Initialize application session using the injected cookies
                 self._get_session_variable()
@@ -407,19 +609,31 @@ class PropwireScraper(Scraper):
                 page.goto('https://propwire.com/search', wait_until='domcontentloaded', timeout=60000)
                 self._simulate_human_behavior(page)
                 
-                # Extract all cookies
+                # Extract all cookies with full metadata
                 cookies = context.cookies()
                 browser.close()
                 
-                # Convert to dictionary format
-                cookie_dict = {cookie['name']: cookie['value'] for cookie in cookies}
+                # Convert to dictionary format (preserve full cookie info for proper injection)
+                cookie_dict = {}
+                cookie_metadata = {}  # Store full cookie info for proper domain/path setting
+                for cookie in cookies:
+                    cookie_dict[cookie['name']] = cookie['value']
+                    cookie_metadata[cookie['name']] = {
+                        'domain': cookie.get('domain', '.propwire.com'),
+                        'path': cookie.get('path', '/'),
+                        'secure': cookie.get('secure', True),
+                        'httpOnly': cookie.get('httpOnly', False),
+                    }
                 
                 # Check if we got DataDome cookie
                 if 'datadome' in cookie_dict:
                     logger.info(f"Successfully extracted DataDome cookie (length: {len(cookie_dict['datadome'])})")
+                    # Store metadata for proper injection
+                    cookie_dict['_metadata'] = cookie_metadata
                     return cookie_dict
                 else:
                     logger.warning(f"Playwright session established but no DataDome cookie found. Cookies: {list(cookie_dict.keys())}")
+                    cookie_dict['_metadata'] = cookie_metadata
                     return cookie_dict  # Return anyway, might have other useful cookies
                     
         except Exception as e:
@@ -737,19 +951,22 @@ class PropwireScraper(Scraper):
             
             logger.debug("Navigating to propwire.com (Playwright Fallback)...")
             try:
+                # Navigate to main page first to establish session
                 page.goto('https://propwire.com/', wait_until='domcontentloaded', timeout=60000)
-                
-                # Simulate human behavior
                 self._simulate_human_behavior(page)
+                page.wait_for_timeout(2000)
                 
-                # Wait for DataDome clearance (cookie)
-                page.wait_for_timeout(3000)
+                # Navigate to search page (mimics real user flow)
+                logger.debug("Navigating to search page...")
+                page.goto('https://propwire.com/search', wait_until='domcontentloaded', timeout=60000)
+                self._simulate_human_behavior(page)
+                page.wait_for_timeout(3000)  # Wait for DataDome to fully clear
                 
                 logger.debug(f"Executing fetch to {endpoint}...")
                 
                 # Execute fetch in the page context
-                # Use json.dumps to stringify payload for JS injection
-                payload_json = json.dumps(payload)
+                # Payload is already a dict, need to stringify it for JavaScript
+                payload_json_str = json.dumps(payload)
                 
                 response_data = page.evaluate(f"""
                     async () => {{
@@ -759,9 +976,10 @@ class PropwireScraper(Scraper):
                                 'Content-Type': 'application/json',
                                 'Accept': 'application/json',
                                 'Origin': 'https://www.propwire.com',
-                                'Referer': 'https://www.propwire.com/'
+                                'Referer': 'https://www.propwire.com/search'
                             }},
-                            body: {json.dumps(payload_json)} 
+                            credentials: 'include',  // Include cookies
+                            body: {payload_json_str}
                         }});
                         if (response.status === 403 || response.status === 401) {{
                             throw new Error('Fetch failed with status ' + response.status);
