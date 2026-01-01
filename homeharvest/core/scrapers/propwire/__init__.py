@@ -24,7 +24,7 @@ from tenacity import (
     stop_after_attempt,
 )
 
-from .. import Scraper, DEFAULT_HEADERS
+from .. import Scraper, DEFAULT_HEADERS, USE_CURL_CFFI, requests
 from ....exceptions import AuthenticationError
 from ..models import (
     Property,
@@ -227,18 +227,30 @@ class PropwireScraper(Scraper):
         try:
             import logging
             logger = logging.getLogger(__name__)
+
+            # Always re-initialize a clean session to avoid Realtor.com header contamination
+            # from the Base Scraper class
+            if USE_CURL_CFFI:
+                # Use chrome120 as it matches our Playwright config and known working debug script
+                self.session = requests.Session(impersonate="chrome120")
+                logger.info("[HOMEHARVEST] Re-initialized fresh curl_cffi session for Propwire (chrome120)")
+            else:
+                self.session = requests.Session()
+                logger.info("[HOMEHARVEST] Re-initialized fresh requests session for Propwire")
+
+            # Re-configure proxies on the new session
+            if self.proxy:
+                proxies = {"http": self.proxy, "https": self.proxy}
+                self.session.proxies.update(proxies)
             
             # Step 1: Try to get cached cookies (unless forcing refresh)
             if not force_refresh:
                 cached_cookies = self._get_cached_cookies()
                 if cached_cookies:
                     logger.info("Using cached DataDome cookies")
-                    # Inject cached cookies into session
-                    for name, value in cached_cookies.items():
-                        self.session.cookies.set(name, value, domain='.propwire.com')
-                    # Also set for api.propwire.com
-                    for name, value in cached_cookies.items():
-                        self.session.cookies.set(name, value, domain='.api.propwire.com')
+                    self.session.cookies.update(cached_cookies)
+                    # Initialize session variable even with cached cookies
+                    self._get_session_variable()
                     return
             
             # Step 2: Extract fresh cookies with Playwright
@@ -252,12 +264,16 @@ class PropwireScraper(Scraper):
                 
                 # Step 4: Inject cookies into session
                 logger.debug(f"Injecting {len(datadome_cookies)} cookies into session")
-                for name, value in datadome_cookies.items():
-                    self.session.cookies.set(name, value, domain='.propwire.com')
-                # Also set for api.propwire.com
-                for name, value in datadome_cookies.items():
-                    self.session.cookies.set(name, value, domain='.api.propwire.com')
                 
+                # Use update which is simpler and often more effective
+                self.session.cookies.update(datadome_cookies)
+                
+                # Explicitly set datadome cookie if present ensuring domain is covered
+                if 'datadome' in datadome_cookies:
+                    self.session.cookies.set('datadome', datadome_cookies['datadome'], domain='.propwire.com')
+                    self.session.cookies.set('datadome', datadome_cookies['datadome'], domain='propwire.com')
+                    self.session.cookies.set('datadome', datadome_cookies['datadome'], domain='.api.propwire.com')
+
                 # Verify cookies were set
                 cookie_names = [c.name for c in self.session.cookies if hasattr(c, 'name')]
                 logger.debug(f"Cookies in session after injection: {cookie_names}")
@@ -266,6 +282,8 @@ class PropwireScraper(Scraper):
                 else:
                     logger.warning("DataDome cookie NOT found in session after injection!")
                 
+                # Initialize application session using the injected cookies
+                self._get_session_variable()
                 return
             
             # Step 5: Fallback to requests-based session establishment
@@ -301,6 +319,17 @@ class PropwireScraper(Scraper):
                 # Launch browser with proxy if available
                 launch_options = {
                     'headless': True,
+                    'args': [
+                        '--disable-blink-features=AutomationControlled',
+                        '--disable-extensions',
+                        '--no-sandbox',
+                        '--disable-setuid-sandbox',
+                        '--disable-infobars',
+                        '--window-position=0,0',
+                        '--ignore-certifcate-errors',
+                        '--ignore-certifcate-errors-spki-list',
+                        '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                    ]
                 }
                 
                 # Configure proxy if available
@@ -320,23 +349,63 @@ class PropwireScraper(Scraper):
                 
                 # Create context with realistic browser settings
                 context = browser.new_context(
-                    viewport={'width': 1920, 'height': 1200},
+                    viewport={'width': 1920, 'height': 1080},
                     user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
                     locale='en-US',
                     timezone_id='America/New_York',
+                    has_touch=False,
+                    is_mobile=False,
+                    device_scale_factor=1,
+                    color_scheme='light',
                 )
+                
+                # Inject stealth scripts to hide automation
+                context.add_init_script("""
+                    Object.defineProperty(navigator, 'webdriver', {
+                        get: () => undefined
+                    });
+                    
+                    // Overwrite the `plugins` property to use a custom getter.
+                    Object.defineProperty(navigator, 'plugins', {
+                        get: () => [1, 2, 3, 4, 5],
+                    });
+                    
+                    // Pass the Chrome Test.
+                    window.chrome = {
+                        runtime: {},
+                        // etc.
+                    };
+                    
+                    // Pass the Permissions Test.
+                    const originalQuery = window.navigator.permissions.query;
+                    return window.navigator.permissions.query = (parameters) => (
+                        parameters.name === 'notifications' ?
+                            Promise.resolve({ state: Notification.permission }) :
+                            originalQuery(parameters)
+                    );
+                """)
                 
                 page = context.new_page()
                 
                 # Navigate to propwire.com and wait for DataDome JS to execute
                 logger.debug("Navigating to propwire.com...")
-                page.goto('https://propwire.com/', wait_until='networkidle', timeout=30000)
-                time.sleep(5)  # Wait for DataDome JS to execute and set cookies
+                page.goto('https://propwire.com/', wait_until='domcontentloaded', timeout=60000)
                 
-                # Navigate to search page
+                # Simulate human behavior
+                self._simulate_human_behavior(page)
+                
+                # Wait for DataDome cookie to appear
+                logger.debug("Waiting for DataDome cookie...")
+                try:
+                    # Wait up to 10 seconds for the cookie to be set
+                    page.wait_for_timeout(5000)
+                except Exception as e:
+                    logger.debug(f"Wait failed: {e}")
+                
+                # Navigate to search page to ensure all cookies are set
                 logger.debug("Navigating to search page...")
-                page.goto('https://propwire.com/search', wait_until='networkidle', timeout=30000)
-                time.sleep(3)  # Wait for additional cookies
+                page.goto('https://propwire.com/search', wait_until='domcontentloaded', timeout=60000)
+                self._simulate_human_behavior(page)
                 
                 # Extract all cookies
                 cookies = context.cookies()
@@ -350,13 +419,31 @@ class PropwireScraper(Scraper):
                     logger.info(f"Successfully extracted DataDome cookie (length: {len(cookie_dict['datadome'])})")
                     return cookie_dict
                 else:
-                    logger.warning("Playwright session established but no DataDome cookie found")
+                    logger.warning(f"Playwright session established but no DataDome cookie found. Cookies: {list(cookie_dict.keys())}")
                     return cookie_dict  # Return anyway, might have other useful cookies
                     
         except Exception as e:
             import logging
             logging.getLogger(__name__).warning(f"Playwright cookie extraction failed: {e}")
             return None
+
+    def _simulate_human_behavior(self, page):
+        """Simulate human-like mouse movements and scrolling."""
+        import random
+        try:
+            # Random mouse movements
+            for _ in range(3):
+                x = random.randint(100, 800)
+                y = random.randint(100, 600)
+                page.mouse.move(x, y, steps=10)
+                page.wait_for_timeout(random.randint(100, 500))
+            
+            # Random scrolling
+            page.evaluate("window.scrollBy(0, 300)")
+            page.wait_for_timeout(random.randint(500, 1000))
+            page.evaluate("window.scrollBy(0, -100)")
+        except Exception:
+            pass
     
     def _establish_session_requests(self):
         """
@@ -464,26 +551,50 @@ class PropwireScraper(Scraper):
         time.sleep(delay)
         
         # Use session from base class (like Realtor does) - it already has curl_cffi configured
-        # Build headers similar to Realtor's DEFAULT_HEADERS but for Propwire
-        # Key: Use the same header structure as Realtor (which works) but with Propwire domains
-        request_headers = DEFAULT_HEADERS.copy()
-        request_headers.update({
+        # Build clean headers for Propwire, AVOID DEFAULT_HEADERS which has Realtor info
+        base_headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json, text/plain, */*',
             'Origin': 'https://www.propwire.com',
             'Referer': 'https://www.propwire.com/',
-            'Accept': 'application/json, text/plain, */*',  # Propwire expects JSON, not */*
-        })
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-site',
+            # Do NOT set User-Agent here, let curl_cffi session handle it to match TLS fingerprint
+        }
         
+        import logging
+        logger = logging.getLogger(__name__)
+
+        # Helper to inject cookies into headers
+        def get_headers_with_cookies():
+            current_headers = base_headers.copy()
+            
+            # Start with session cookies
+            # Use manual dict comprehension to avoid compatibility issues with curl_cffi/requests aliases
+            combined_cookies = {c.name: c.value for c in self.session.cookies if hasattr(c, 'name') and hasattr(c, 'value')}
+            
+            # Update with cached cookies (prioritizing Playwright-extracted DataDome)
+            cached = self._get_cached_cookies()
+            if cached:
+                combined_cookies.update(cached)
+            
+            # Manually construct Cookie header with ALL merged cookies
+            if combined_cookies:
+                logger.debug(f"Constructing Cookie header with {len(combined_cookies)} cookies")
+                cookie_header = "; ".join([f"{k}={v}" for k, v in combined_cookies.items()])
+                current_headers['Cookie'] = cookie_header
+            
+            return current_headers
+
         try:
-            # Verify cookies before making request
-            import logging
-            logger = logging.getLogger(__name__)
-            cookie_names = [c.name for c in self.session.cookies if hasattr(c, 'name')]
-            logger.debug(f"Cookies in session before API call: {cookie_names}")
-            if 'datadome' not in cookie_names:
-                logger.warning("DataDome cookie missing before API call! This may cause 401/403 errors.")
+            # Initial request
+            request_headers = get_headers_with_cookies()
             
             # Use session.post like Realtor does (session already has curl_cffi if available)
-            # Realtor pattern: use session.post with headers, session already configured with curl_cffi
             response = self.session.post(
                 endpoint,
                 headers=request_headers,
@@ -500,39 +611,41 @@ class PropwireScraper(Scraper):
                     )
                 else:
                     # With proxy, try refreshing cookies and retry once
-                    import logging
-                    logging.getLogger(__name__).warning("403 Forbidden received, refreshing cookies and retrying...")
+                    logger.warning("403 Forbidden received, refreshing cookies and retrying...")
                     self._establish_session(force_refresh=True)  # Force refresh cookies
                     time.sleep(2)
+                    
+                    # Re-fetch headers with NEW cookies
+                    retry_headers = get_headers_with_cookies()
+                    
                     response = self.session.post(
                         endpoint,
-                        headers=request_headers,
+                        headers=retry_headers,
                         json=payload,
                         proxies=self.proxies
                     )
                     if response.status_code == 403:
-                        raise AuthenticationError(
-                            "Received 403 Forbidden from Propwire.com API. DataDome blocking detected.",
-                            response=response
-                        )
+                        logger.warning("Received 403 Forbidden (DataDome) on retry. Falling back to Playwright.")
+                        return self._playwright_post_request(endpoint, payload)
             
             if response.status_code == 401:
                 # 401 Unauthorized - cookies may have expired, try refreshing
-                import logging
-                logging.getLogger(__name__).warning("401 Unauthorized received, refreshing cookies and retrying...")
+                logger.warning("401 Unauthorized received, refreshing cookies and retrying...")
                 self._establish_session(force_refresh=True)  # Force refresh cookies
                 time.sleep(2)
+                
+                # Re-fetch headers with NEW cookies
+                retry_headers = get_headers_with_cookies()
+                
                 response = self.session.post(
                     endpoint,
-                    headers=request_headers,
+                    headers=retry_headers,
                     json=payload,
                     proxies=self.proxies
                 )
                 if response.status_code == 401:
-                    raise AuthenticationError(
-                        "Received 401 Unauthorized from Propwire.com API. Session may have expired or authentication required.",
-                        response=response
-                    )
+                    logger.warning("Received 401 Unauthorized on retry. Falling back to Playwright.")
+                    return self._playwright_post_request(endpoint, payload)
             
             response.raise_for_status()
             return response.json()
@@ -540,7 +653,130 @@ class PropwireScraper(Scraper):
         except JSONDecodeError as e:
             raise Exception(f"Failed to parse JSON response: {e}")
         except Exception as e:
+            # If we haven't already fallen back, maybe we should here too? 
+            # For now just raise
             raise Exception(f"API request failed: {e}")
+
+    def _playwright_post_request(self, endpoint: str, payload: dict) -> dict:
+        """
+        Execute POST request using Playwright to bypass DataDome.
+        This is a fallback when curl_cffi is blocked.
+        """
+        try:
+            from playwright.sync_api import sync_playwright
+        except ImportError:
+            raise ImportError("Playwright is required for Propwire fallback but not installed.")
+
+        import logging
+        import json
+        logger = logging.getLogger(__name__)
+
+        logger.info("Initializing Playwright fallback session...")
+
+        with sync_playwright() as p:
+            # Launch browser with proxy if available
+            launch_options = {
+                'headless': True,
+                'args': [
+                    '--disable-blink-features=AutomationControlled',
+                    '--disable-extensions',
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-infobars',
+                    '--window-position=0,0',
+                    '--ignore-certifcate-errors',
+                    '--ignore-certifcate-errors-spki-list',
+                    '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                ]
+            }
+            
+            # Configure proxy
+            if self.proxy:
+                from urllib.parse import urlparse
+                parsed = urlparse(self.proxy)
+                launch_options['proxy'] = {
+                    'server': f"{parsed.scheme}://{parsed.hostname}:{parsed.port}",
+                    'username': parsed.username,
+                    'password': parsed.password,
+                } if parsed.username else {
+                    'server': self.proxy
+                }
+            
+            browser = p.chromium.launch(**launch_options)
+            
+            # Create stealth context
+            context = browser.new_context(
+                viewport={'width': 1920, 'height': 1080},
+                user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                locale='en-US',
+                timezone_id='America/New_York',
+                has_touch=False,
+                is_mobile=False,
+                device_scale_factor=1,
+                color_scheme='light',
+            )
+            
+            # Inject stealth scripts
+            context.add_init_script("""
+                Object.defineProperty(navigator, 'webdriver', {
+                    get: () => undefined
+                });
+                Object.defineProperty(navigator, 'plugins', {
+                    get: () => [1, 2, 3, 4, 5],
+                });
+                window.chrome = { runtime: {} };
+                const originalQuery = window.navigator.permissions.query;
+                window.navigator.permissions.query = (parameters) => (
+                    parameters.name === 'notifications' ?
+                        Promise.resolve({ state: Notification.permission }) :
+                        originalQuery(parameters)
+                );
+            """)
+            
+            page = context.new_page()
+            
+            logger.debug("Navigating to propwire.com (Playwright Fallback)...")
+            try:
+                page.goto('https://propwire.com/', wait_until='domcontentloaded', timeout=60000)
+                
+                # Simulate human behavior
+                self._simulate_human_behavior(page)
+                
+                # Wait for DataDome clearance (cookie)
+                page.wait_for_timeout(3000)
+                
+                logger.debug(f"Executing fetch to {endpoint}...")
+                
+                # Execute fetch in the page context
+                # Use json.dumps to stringify payload for JS injection
+                payload_json = json.dumps(payload)
+                
+                response_data = page.evaluate(f"""
+                    async () => {{
+                        const response = await fetch('{endpoint}', {{
+                            method: 'POST',
+                            headers: {{
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                                'Origin': 'https://www.propwire.com',
+                                'Referer': 'https://www.propwire.com/'
+                            }},
+                            body: {json.dumps(payload_json)} 
+                        }});
+                        if (response.status === 403 || response.status === 401) {{
+                            throw new Error('Fetch failed with status ' + response.status);
+                        }}
+                        return await response.json();
+                    }}
+                """)
+                
+                browser.close()
+                return response_data
+                
+            except Exception as e:
+                browser.close()
+                logger.error(f"Playwright fallback failed: {e}")
+                raise Exception(f"Playwright fallback failed: {e}")
 
     @retry(
         retry=retry_if_exception_type(Exception),
