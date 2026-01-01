@@ -130,6 +130,8 @@ class ScraperInput(BaseModel):
 
 
 class Scraper:
+    session = None  # Class-level shared session
+    
     def __init__(
         self,
         scraper_input: ScraperInput,

@@ -15,6 +15,7 @@ class SiteName(Enum):
     ZILLOW = "zillow"
     REDFIN = "redfin"
     REALTOR = "realtor.com"
+    PROPWIRE = "propwire.com"
 
     @classmethod
     def get_by_value(cls, value):
