@@ -248,3 +248,4 @@ This document describes the actual API response structure captured from the brow
 4. `__init__.py` - Updated `general_search` to handle `response` array
 
 
+
