@@ -130,6 +130,10 @@ class ScraperInput(BaseModel):
 
 
 class Scraper:
+    # Shared HTTP session for non-proxy runs.
+    # Initialized to avoid `AttributeError: type object 'Scraper' has no attribute 'session'`.
+    session = None
+
     def __init__(
         self,
         scraper_input: ScraperInput,

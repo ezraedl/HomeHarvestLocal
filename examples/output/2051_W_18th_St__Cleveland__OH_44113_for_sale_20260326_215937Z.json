@@ -1,0 +1,851 @@
+{
+  "query": {
+    "address": "2051 W 18th St, Cleveland, OH 44113",
+    "listing_type": "for_sale",
+    "property_type": [
+      "single_family"
+    ],
+    "return_type": "raw"
+  },
+  "scraped_at_utc": "2026-03-26T21:59:37.361025+00:00",
+  "results": [
+    {
+      "pending_date": null,
+      "listing_id": "2991811879",
+      "property_id": "4537632872",
+      "href": "https://www.realtor.com/realestateandhomes-detail/2051-W-18th-St_Cleveland_OH_44113_M45376-32872",
+      "permalink": "2051-W-18th-St_Cleveland_OH_44113_M45376-32872",
+      "list_date": "2026-02-23T14:06:50Z",
+      "status": "for_sale",
+      "mls_status": "Active",
+      "last_sold_price": 20000,
+      "last_sold_date": "2008-09-12",
+      "last_status_change_date": "2026-02-23T14:06:50Z",
+      "last_update_date": "2026-03-04T16:38:49Z",
+      "list_price": 375000,
+      "list_price_max": null,
+      "list_price_min": null,
+      "price_per_sqft": 211,
+      "tags": [
+        "city_view",
+        "community_park",
+        "forced_air",
+        "recreation_facilities",
+        "view",
+        "basement",
+        "two_or_more_stories",
+        "views",
+        "trails"
+      ],
+      "open_houses": null,
+      "details": [
+        {
+          "category": "Bedrooms",
+          "text": [
+            "Bedrooms: 4",
+            "Bedrooms On Main Level: 1"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Bathrooms",
+          "text": [
+            "Total Bathrooms: 2",
+            "Full Bathrooms: 2",
+            "Bathrooms On Main Level: 1"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Heating and Cooling",
+          "text": [
+            "Heating Features: ForcedAir, Gas, Radiators",
+            "Heating: Yes"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Other Rooms",
+          "text": [
+            "Basement Description: Partial,Unfinished"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Exterior and Lot Features",
+          "text": [
+            "Fencing: ChainLink, Full"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Land Info",
+          "text": [
+            "Land Lease: No",
+            "Lot Size Acres: 0.07",
+            "Lot Size Source: PublicRecords",
+            "Lot Size Square Feet: 3049"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Garage and Parking",
+          "text": [
+            "Parking Features: NoGarage, OnStreet"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Home Features",
+          "text": [
+            "View: City"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Homeowners Association",
+          "text": [
+            "Association: No",
+            "Calculated Total Monthly Association Fees: 0"
+          ],
+          "parent_category": "Community"
+        },
+        {
+          "category": "School Information",
+          "text": [
+            "Elementary School District: Cleveland Municipal - 1809",
+            "High School District: Cleveland Municipal - 1809",
+            "Middle or Junior School District: Cleveland Municipal - 1809"
+          ],
+          "parent_category": "Community"
+        },
+        {
+          "category": "Amenities and Community Features",
+          "text": [
+            "Community Features: Playground"
+          ],
+          "parent_category": "Community"
+        },
+        {
+          "category": "Other Property Info",
+          "text": [
+            "Annual Tax Amount: 8241",
+            "Source Listing Status: Active",
+            "County: Cuyahoga",
+            "Directions: Northern Duck Island. Just a couple houses south of the Lorain Carnegie Bridge.",
+            "Tax Year: 2024",
+            "Source Property Type: Residential",
+            "Home Warranty: No",
+            "Source Neighborhood: Duck Island",
+            "Parcel Number: 004-02-070",
+            "Postal City: CLEVELAND",
+            "Postal Code Plus 4: 3504",
+            "Subdivision: Duck Island",
+            "Township: Cleveland",
+            "Property Subtype: SingleFamilyResidence"
+          ],
+          "parent_category": "Listing"
+        },
+        {
+          "category": "Building and Construction",
+          "text": [
+            "Total Square Feet Living: 1776",
+            "Year Built: 1890",
+            "Above Grade Finished Area: 1776",
+            "Above Grade Finished Area Source: Realist",
+            "Below Grade Sqft Area Source: Realist",
+            "Construction Materials: VinylSiding",
+            "Levels: Two",
+            "Living Area Units: SquareFeet",
+            "Property Age: 136",
+            "Property Condition: Fixer",
+            "Roof: Asphalt, Fiberglass",
+            "Levels or Stories: 2",
+            "Total Above Grade Sqft Area: 1776",
+            "Year Built Source: PublicRecords",
+            "Architectural Style: Colonial, Traditional"
+          ],
+          "parent_category": "Features"
+        },
+        {
+          "category": "Utilities",
+          "text": [
+            "Sewer: PublicSewer",
+            "Water Source: Public"
+          ],
+          "parent_category": "Features"
+        }
+      ],
+      "pet_policy": null,
+      "units": null,
+      "flags": {
+        "is_contingent": null,
+        "is_pending": null,
+        "is_new_construction": null
+      },
+      "description": {
+        "type": "single_family",
+        "sqft": 1776,
+        "beds": 4,
+        "baths_full": 2,
+        "baths_half": null,
+        "lot_sqft": 3049,
+        "year_built": 1890,
+        "garage": null,
+        "name": null,
+        "stories": 2,
+        "text": "Incredible opportunity to do a full renovation in one of the very best locations in the city! This generous sized lot and traditional colonial structure is waiting to be reimagined into your dream Duck Island home. Potential for incredible skyline views! Originally built as a duplex, this home is currently structured as a single family home with a generous back yard. This prime northern Duck Island location provides easy access to Tremont, Ohio City, the West Side Market, Downtown, the Towpath Trail, and more, making it an ideal place to live your best city life. Embrace the opportunity to create your perfect city home and experience the right blend of modern luxury and the best of city living."
+      },
+      "source": {
+        "id": "NEOH",
+        "listing_id": "5188404"
+      },
+      "hoa": {
+        "fee": 0
+      },
+      "location": {
+        "address": {
+          "street_direction": "W",
+          "street_number": "2051",
+          "street_name": "18th",
+          "street_suffix": "St",
+          "line": "2051 W 18th St",
+          "unit": null,
+          "city": "Cleveland",
+          "state_code": "OH",
+          "postal_code": "44113",
+          "coordinate": {
+            "lon": -81.696532,
+            "lat": 41.486667
+          }
+        },
+        "county": {
+          "name": "Cuyahoga",
+          "fips_code": "39035"
+        },
+        "neighborhoods": [
+          {
+            "name": "Tremont"
+          }
+        ],
+        "parcel": null
+      },
+      "tax_record": {
+        "cl_id": "5AF24E6D4C3E6716E0DCE2E227AF5708",
+        "public_record_id": "5AF24E6D4C3E6716E0DCE2E227AF5708",
+        "last_update_date": "2026-03-19",
+        "apn": null,
+        "tax_parcel_id": "3db95a98-bc34-462a-b1f7-1a59ae2e13eb"
+      },
+      "primary_photo": {
+        "href": "https://ap.rdcpix.com/3643285e80d8c2fa9f73de1cf4db1241l-m2937574559s.jpg"
+      },
+      "photos": [
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/3643285e80d8c2fa9f73de1cf4db1241l-m2937574559s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/3643285e80d8c2fa9f73de1cf4db1241l-m853105296s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/3643285e80d8c2fa9f73de1cf4db1241l-m2508391873s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/3643285e80d8c2fa9f73de1cf4db1241l-m3551372381s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/3643285e80d8c2fa9f73de1cf4db1241l-m3763963774s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/3643285e80d8c2fa9f73de1cf4db1241l-m2223056439s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/3643285e80d8c2fa9f73de1cf4db1241l-m686674982s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/3643285e80d8c2fa9f73de1cf4db1241l-m348054422s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        }
+      ],
+      "advertisers": [
+        {
+          "email": "carolynbentley@howardhanna.com",
+          "broker": {
+            "name": "Howard Hanna Real Estate - Broker",
+            "fulfillment_id": "1535106"
+          },
+          "type": "seller",
+          "name": "Carolyn Bentley",
+          "fulfillment_id": "1209336",
+          "builder": null,
+          "phones": [
+            {
+              "ext": "",
+              "primary": true,
+              "type": "Office",
+              "number": "2166964800"
+            },
+            {
+              "ext": "",
+              "primary": true,
+              "type": "Mobile",
+              "number": "2164701502"
+            }
+          ],
+          "office": {
+            "name": "Howard Hanna - Cleveland City",
+            "email": "manager.clevelandcity@howardhanna.com",
+            "fulfillment_id": "1505086",
+            "href": "http://www.howardhanna.com/Office/Detail/Cleveland%20City/00241",
+            "phones": [
+              {
+                "number": "2166964800",
+                "type": "Office",
+                "primary": true,
+                "ext": ""
+              }
+            ],
+            "mls_set": "O-NEOH-2747"
+          },
+          "corporation": null,
+          "mls_set": "A-NEOH-2007005769",
+          "nrds_id": "657016207",
+          "state_license": "2007005769",
+          "rental_corporation": null,
+          "rental_management": null
+        },
+        {
+          "email": "andrewoconke@howardhanna.com",
+          "broker": {
+            "name": "Howard Hanna Real Estate - Broker",
+            "fulfillment_id": "1535106"
+          },
+          "type": "co_seller",
+          "name": "Andrew Oconke",
+          "fulfillment_id": "1976092",
+          "builder": null,
+          "phones": [
+            {
+              "ext": "",
+              "primary": true,
+              "type": "Office",
+              "number": "2166964800"
+            },
+            {
+              "ext": "",
+              "primary": true,
+              "type": "Mobile",
+              "number": "2162460875"
+            }
+          ],
+          "office": {
+            "name": "Howard Hanna - Cleveland City",
+            "email": "manager.clevelandcity@howardhanna.com",
+            "fulfillment_id": "1505086",
+            "href": "http://www.howardhanna.com/Office/Detail/Cleveland%20City/00241",
+            "phones": [
+              {
+                "number": "2166964800",
+                "type": "Office",
+                "primary": false,
+                "ext": ""
+              }
+            ],
+            "mls_set": "O-NEOH-2747"
+          },
+          "corporation": null,
+          "mls_set": "A-NEOH-2014003543",
+          "nrds_id": null,
+          "state_license": "2014003543",
+          "rental_corporation": null,
+          "rental_management": null
+        }
+      ],
+      "nearbySchools": {
+        "__typename": "SchoolList",
+        "schools": [
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198594231",
+              "name": "Horizon Science Academy Denison Elementary School"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572221",
+              "name": "Cleveland Metropolitan School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198594711",
+              "name": "Northeast Ohio College Preparatory School"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572221",
+              "name": "Cleveland Metropolitan School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572221",
+              "name": "Cleveland Metropolitan School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          }
+        ]
+      },
+      "monthly_fees": null,
+      "one_time_fees": null,
+      "popularity": {
+        "periods": [
+          {
+            "clicks_total": 3,
+            "views_total": 297,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 1,
+            "saves_total": 0,
+            "last_n_days": 1
+          },
+          {
+            "clicks_total": 9,
+            "views_total": 1828,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 1,
+            "saves_total": 1,
+            "last_n_days": 7
+          },
+          {
+            "clicks_total": 26,
+            "views_total": 4228,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 1,
+            "saves_total": 1,
+            "last_n_days": 14
+          },
+          {
+            "clicks_total": 36,
+            "views_total": 6872,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 1,
+            "saves_total": 1,
+            "last_n_days": 21
+          },
+          {
+            "clicks_total": 58,
+            "views_total": 10505,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 1,
+            "saves_total": 1,
+            "last_n_days": 28
+          },
+          {
+            "clicks_total": null,
+            "views_total": null,
+            "dwell_time_mean": null,
+            "dwell_time_median": null,
+            "leads_total": null,
+            "shares_total": null,
+            "saves_total": null,
+            "last_n_days": 30
+          }
+        ]
+      },
+      "parking": null,
+      "terms": null,
+      "taxHistory": [
+        {
+          "__typename": "TaxHistory",
+          "tax": 8244,
+          "year": 2025,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 83790,
+            "land": 41090,
+            "total": 124880
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 8241,
+          "year": 2024,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 83790,
+            "land": 41090,
+            "total": 124880
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 4356,
+          "year": 2022,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 45260,
+            "land": 12010,
+            "total": 57270
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 4373,
+          "year": 2021,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 45260,
+            "land": 12010,
+            "total": 57270
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 3981,
+          "year": 2020,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 35630,
+            "land": 9450,
+            "total": 45080
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 3688,
+          "year": 2019,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 35630,
+            "land": 9450,
+            "total": 45080
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 3676,
+          "year": 2018,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 35630,
+            "land": 9450,
+            "total": 45080
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2242,
+          "year": 2017,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 21560,
+            "land": 4970,
+            "total": 26530
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2225,
+          "year": 2016,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 21560,
+            "land": 4970,
+            "total": 26530
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2224,
+          "year": 2015,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 21560,
+            "land": 4970,
+            "total": 26530
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1820,
+          "year": 2014,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 17680,
+            "land": 4060,
+            "total": 21740
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1800,
+          "year": 2013,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 17680,
+            "land": 4060,
+            "total": 21740
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1749,
+          "year": 2012,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 17680,
+            "land": 4060,
+            "total": 21740
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1409,
+          "year": 2010,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 18660,
+            "land": 4170,
+            "total": 22830
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1398,
+          "year": 2009,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 18660,
+            "land": 4170,
+            "total": 22830
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1471,
+          "year": 2008,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 20965,
+            "land": 4690,
+            "total": 25655
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1423,
+          "year": 2007,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 20970,
+            "land": 4690,
+            "total": 25660
+          }
+        }
+      ],
+      "property_history": [
+        {
+          "date": "2026-03-04",
+          "event_name": "Price Changed",
+          "price": 375000
+        },
+        {
+          "date": "2026-02-23",
+          "event_name": "Listed",
+          "price": 385000
+        },
+        {
+          "date": "2009-11-09",
+          "event_name": "Sold",
+          "price": 20000
+        },
+        {
+          "date": "2008-06-21",
+          "event_name": "Listed",
+          "price": 39000
+        }
+      ],
+      "estimates": {
+        "__typename": "HomeEstimates",
+        "currentValues": [
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "quantarium",
+              "name": "Quantarium"
+            },
+            "estimate": 368565,
+            "estimateHigh": 479135,
+            "estimateLow": 257996,
+            "date": "2026-03-18",
+            "isBestHomeValue": true
+          },
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "corelogic",
+              "name": "Cotality™"
+            },
+            "estimate": 361600,
+            "estimateHigh": 401700,
+            "estimateLow": 321500,
+            "date": "2026-03-09",
+            "isBestHomeValue": false
+          },
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "collateral",
+              "name": "Collateral Analytics"
+            },
+            "estimate": 389000,
+            "estimateHigh": 400700,
+            "estimateLow": 377300,
+            "date": "2026-03-14",
+            "isBestHomeValue": false
+          }
+        ]
+      }
+    }
+  ]
+}
