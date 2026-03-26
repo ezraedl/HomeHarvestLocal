@@ -648,6 +648,11 @@ HOMES_DATA = """%s
                     category
                 }
                 taxHistory: tax_history { __typename tax year assessment { __typename building land total } }
+                property_history {
+                    date
+                    event_name
+                    price
+                }
                 estimates {
                     __typename
                     currentValues: current_values {

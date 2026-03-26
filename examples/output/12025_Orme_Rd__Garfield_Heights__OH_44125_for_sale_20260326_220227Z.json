@@ -1,0 +1,894 @@
+{
+  "query": {
+    "address": "12025 Orme Rd, Garfield Heights, OH 44125",
+    "listing_type": "for_sale",
+    "property_type": [
+      "single_family"
+    ],
+    "return_type": "raw"
+  },
+  "scraped_at_utc": "2026-03-26T22:02:27.265333+00:00",
+  "results": [
+    {
+      "pending_date": "2026-03-25T17:20:59Z",
+      "listing_id": "2987060834",
+      "property_id": "4212584097",
+      "href": "https://www.realtor.com/realestateandhomes-detail/12025-Orme-Rd_Garfield-Heights_OH_44125_M42125-84097",
+      "permalink": "12025-Orme-Rd_Garfield-Heights_OH_44125_M42125-84097",
+      "list_date": "2025-10-05T02:00:46Z",
+      "status": "sold",
+      "mls_status": "Sold",
+      "last_sold_price": 156000,
+      "last_sold_date": "2026-03-12",
+      "last_status_change_date": "2026-03-25T17:30:23Z",
+      "last_update_date": "2026-03-26T17:57:01Z",
+      "list_price": 159900,
+      "list_price_max": null,
+      "list_price_min": null,
+      "price_per_sqft": 147,
+      "tags": [
+        "central_air",
+        "forced_air",
+        "basement",
+        "single_story",
+        "garage_1_or_more",
+        "garage_2_or_more"
+      ],
+      "open_houses": null,
+      "details": [
+        {
+          "category": "Other Rooms",
+          "text": [
+            "Total Rooms: 5",
+            "Other Dimensions: 11' x 8'",
+            "Other Level: First",
+            "Other Description: Eating Area",
+            "Living Room Dimensions: 14' x 14'",
+            "Living Room Level: First",
+            "Basement Description: Full"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Bedrooms",
+          "text": [
+            "Bedrooms: 3",
+            "Bedrooms On Main Level: 3",
+            "Bedroom 1 Dimensions: 13' x 12'",
+            "Bedroom 2 Dimensions: 11' x 10'",
+            "Bedroom 3 Dimensions: 13' x 10'",
+            "Bedroom 1 Level: First",
+            "Bedroom 2 Level: First",
+            "Bedroom 3 Level: First"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Bathrooms",
+          "text": [
+            "Total Bathrooms: 2",
+            "Full Bathrooms: 2",
+            "Bathrooms On Main Level: 1"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Heating and Cooling",
+          "text": [
+            "Cooling Features: CentralAir",
+            "Heating Features: ForcedAir, Gas",
+            "Heating: Yes"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Kitchen and Dining",
+          "text": [
+            "Kitchen Dimensions: 11' x 10'",
+            "Kitchen Level: First"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Land Info",
+          "text": [
+            "Land Lease: No",
+            "Lot Size Acres: 0.1188",
+            "Lot Size Source: PublicRecords",
+            "Lot Size Square Feet: 5175"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Garage and Parking",
+          "text": [
+            "Garage Spaces: 2",
+            "Parking Features: Detached, Garage"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Homeowners Association",
+          "text": [
+            "Association: No",
+            "Calculated Total Monthly Association Fees: 0"
+          ],
+          "parent_category": "Community"
+        },
+        {
+          "category": "School Information",
+          "text": [
+            "Elementary School District: Garfield Heights CSD - 1815",
+            "High School District: Garfield Heights CSD - 1815",
+            "Middle or Junior School District: Garfield Heights CSD - 1815"
+          ],
+          "parent_category": "Community"
+        },
+        {
+          "category": "Other Property Info",
+          "text": [
+            "Annual Tax Amount: 4747",
+            "Source Listing Status: Closed",
+            "County: Cuyahoga",
+            "Directions: By Linda Lane",
+            "Tax Year: 2024",
+            "Source Property Type: Residential",
+            "Home Warranty: No",
+            "Source Neighborhood: Honey Lane",
+            "Parcel Number: 543-18-016",
+            "Postal City: CLEVELAND",
+            "Subdivision: Honey Lane",
+            "Township: Garfield Heights",
+            "Property Subtype: SingleFamilyResidence"
+          ],
+          "parent_category": "Listing"
+        },
+        {
+          "category": "Building and Construction",
+          "text": [
+            "Total Square Feet Living: 1064",
+            "Year Built: 1955",
+            "Above Grade Finished Area: 1064",
+            "Above Grade Finished Area Source: Realist",
+            "Construction Materials: AluminumSiding, Brick",
+            "Levels: One",
+            "Living Area Units: SquareFeet",
+            "Property Age: 71",
+            "Roof: Asphalt, Fiberglass",
+            "Levels or Stories: 1",
+            "Total Above Grade Sqft Area: 1064",
+            "Year Built Source: PublicRecords",
+            "Architectural Style: Ranch"
+          ],
+          "parent_category": "Features"
+        },
+        {
+          "category": "Utilities",
+          "text": [
+            "Sewer: PublicSewer",
+            "Water Source: Public"
+          ],
+          "parent_category": "Features"
+        }
+      ],
+      "pet_policy": null,
+      "units": null,
+      "flags": {
+        "is_contingent": null,
+        "is_pending": null,
+        "is_new_construction": null
+      },
+      "description": {
+        "type": "single_family",
+        "sqft": 1064,
+        "beds": 3,
+        "baths_full": 2,
+        "baths_half": null,
+        "lot_sqft": 5175,
+        "year_built": 1955,
+        "garage": 2,
+        "name": null,
+        "stories": 1,
+        "text": "Come see this charming 3-bedroom, 2-full-bath home in Garfield Heights, Ohio! This home features beautiful refinished hardwood floors and a spacious two-car detached garage. Recent updates include new electrical, a brand-new furnace and A/C, fresh LVT flooring, and freshly painted interiors on both the main floor and basement. The bathroom has been upgraded with a tiled tub/shower and modern hardware, offering a clean and stylish look. The exterior has been pressure washed, and minor concrete work has been completed, giving the home great curb appeal. Whether you're a homeowner or investor, this property offers a solid mix of comfort and value-schedule your showing today!"
+      },
+      "source": {
+        "id": "NEOH",
+        "listing_id": "5162173"
+      },
+      "hoa": {
+        "fee": 0
+      },
+      "location": {
+        "address": {
+          "street_direction": null,
+          "street_number": "12025",
+          "street_name": "Orme",
+          "street_suffix": "Rd",
+          "line": "12025 Orme Rd",
+          "unit": null,
+          "city": "Garfield Heights",
+          "state_code": "OH",
+          "postal_code": "44125",
+          "coordinate": {
+            "lon": -81.600584,
+            "lat": 41.402819
+          }
+        },
+        "county": {
+          "name": "Cuyahoga",
+          "fips_code": "39035"
+        },
+        "neighborhoods": null,
+        "parcel": null
+      },
+      "tax_record": {
+        "cl_id": "896EA22D293F775AFCE44E21D9FB9969",
+        "public_record_id": "896EA22D293F775AFCE44E21D9FB9969",
+        "last_update_date": "2026-03-19",
+        "apn": null,
+        "tax_parcel_id": "5186d0bf-86d8-40de-a2b5-62d300b51962"
+      },
+      "primary_photo": {
+        "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m2732676076s.jpg"
+      },
+      "photos": [
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m2732676076s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m1379757274s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m435875337s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m2185499472s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m49682786s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m2841023699s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m2022194506s.jpg",
+          "tags": [
+            {
+              "label": "kitchen"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m4116077245s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m3743108325s.jpg",
+          "tags": [
+            {
+              "label": "bathroom"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m416307806s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m3696772496s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m3003710562s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/2959b109b187f14258d4bd82ef094438l-m1111112729s.jpg",
+          "tags": [
+            {
+              "label": "bathroom"
+            }
+          ]
+        }
+      ],
+      "advertisers": [
+        {
+          "email": "theakronrealtor@gmail.com",
+          "broker": {
+            "name": "Century 21 Carolyn Riley RL Est. Srvcs. - Broker",
+            "fulfillment_id": "4298755"
+          },
+          "type": "seller",
+          "name": "Patrick Riley",
+          "fulfillment_id": "1631174",
+          "builder": null,
+          "phones": [
+            {
+              "ext": "",
+              "primary": true,
+              "type": "Office",
+              "number": "3308674266"
+            },
+            {
+              "ext": "",
+              "primary": true,
+              "type": "Mobile",
+              "number": "3303888611"
+            }
+          ],
+          "office": {
+            "name": "CENTURY 21 Carolyn Riley Realty",
+            "email": "crr.realestate@gmail.com",
+            "fulfillment_id": "2876471",
+            "href": "WWW.CAROLYNRILEYREALTY.COM",
+            "phones": [
+              {
+                "number": "3308674266",
+                "type": "Office",
+                "primary": true,
+                "ext": ""
+              }
+            ],
+            "mls_set": "O-NEOH-C18425"
+          },
+          "corporation": null,
+          "mls_set": "A-NEOH-C2009002833",
+          "nrds_id": null,
+          "state_license": "2009002833",
+          "rental_corporation": null,
+          "rental_management": null
+        }
+      ],
+      "nearbySchools": {
+        "__typename": "SchoolList",
+        "schools": [
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572561",
+              "name": "Garfield Heights City Schools"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572561",
+              "name": "Garfield Heights City Schools"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572561",
+              "name": "Garfield Heights City Schools"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572561",
+              "name": "Garfield Heights City Schools"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572561",
+              "name": "Garfield Heights City Schools"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198599341",
+              "name": "Gateway Online Academy of Ohio"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198593611",
+              "name": "Harvard Avenue Community School"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198598211",
+              "name": "T2 Honors Academy"
+            }
+          }
+        ]
+      },
+      "monthly_fees": null,
+      "one_time_fees": null,
+      "popularity": {
+        "periods": [
+          {
+            "clicks_total": 1,
+            "views_total": 86,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 0,
+            "last_n_days": 1
+          },
+          {
+            "clicks_total": 6,
+            "views_total": 727,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 0,
+            "last_n_days": 7
+          },
+          {
+            "clicks_total": 14,
+            "views_total": 1515,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 0,
+            "last_n_days": 14
+          },
+          {
+            "clicks_total": 18,
+            "views_total": 2178,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 0,
+            "last_n_days": 21
+          },
+          {
+            "clicks_total": 21,
+            "views_total": 3163,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 0,
+            "last_n_days": 28
+          },
+          {
+            "clicks_total": null,
+            "views_total": null,
+            "dwell_time_mean": null,
+            "dwell_time_median": null,
+            "leads_total": null,
+            "shares_total": null,
+            "saves_total": null,
+            "last_n_days": 30
+          }
+        ]
+      },
+      "parking": null,
+      "terms": null,
+      "taxHistory": [
+        {
+          "__typename": "TaxHistory",
+          "tax": 3810,
+          "year": 2025,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 37870,
+            "land": 9000,
+            "total": 46870
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 4747,
+          "year": 2024,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 37870,
+            "land": 9000,
+            "total": 46870
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 3321,
+          "year": 2022,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 24120,
+            "land": 6300,
+            "total": 30420
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 3510,
+          "year": 2021,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 24120,
+            "land": 6300,
+            "total": 30420
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 3014,
+          "year": 2020,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 19290,
+            "land": 5040,
+            "total": 24330
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2986,
+          "year": 2019,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 19290,
+            "land": 5040,
+            "total": 24330
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 3109,
+          "year": 2018,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 19290,
+            "land": 5040,
+            "total": 24330
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 3002,
+          "year": 2017,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 18590,
+            "land": 4340,
+            "total": 22930
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 3046,
+          "year": 2016,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 18590,
+            "land": 4340,
+            "total": 22930
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2623,
+          "year": 2015,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 18590,
+            "land": 4340,
+            "total": 22930
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2690,
+          "year": 2014,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 19570,
+            "land": 4550,
+            "total": 24120
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2600,
+          "year": 2013,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 19570,
+            "land": 4550,
+            "total": 24120
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2461,
+          "year": 2012,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 19570,
+            "land": 4550,
+            "total": 24120
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2641,
+          "year": 2010,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 26080,
+            "land": 6550,
+            "total": 32630
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2745,
+          "year": 2009,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 26080,
+            "land": 6550,
+            "total": 32630
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2658,
+          "year": 2008,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 28665,
+            "land": 7175,
+            "total": 35840
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2609,
+          "year": 2007,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 28670,
+            "land": 7180,
+            "total": 35850
+          }
+        }
+      ],
+      "property_history": [
+        {
+          "date": "2026-03-25",
+          "event_name": "Listed",
+          "price": 159900
+        },
+        {
+          "date": "2026-03-12",
+          "event_name": "Sold",
+          "price": 156000
+        },
+        {
+          "date": "2026-02-12",
+          "event_name": "Price Changed",
+          "price": 159900
+        },
+        {
+          "date": "2026-01-31",
+          "event_name": "Price Changed",
+          "price": 164900
+        },
+        {
+          "date": "2026-01-08",
+          "event_name": "Price Changed",
+          "price": 169900
+        },
+        {
+          "date": "2025-11-14",
+          "event_name": "Price Changed",
+          "price": 174900
+        },
+        {
+          "date": "2025-11-05",
+          "event_name": "Price Changed",
+          "price": 179900
+        },
+        {
+          "date": "2025-10-22",
+          "event_name": "Price Changed",
+          "price": 184900
+        },
+        {
+          "date": "2025-10-05",
+          "event_name": "Listed",
+          "price": 189900
+        },
+        {
+          "date": "2025-08-22",
+          "event_name": "Sold",
+          "price": 102000
+        },
+        {
+          "date": "1999-08-31",
+          "event_name": "Sold",
+          "price": 100000
+        },
+        {
+          "date": "1991-03-25",
+          "event_name": "Sold",
+          "price": 70000
+        }
+      ],
+      "estimates": {
+        "__typename": "HomeEstimates",
+        "currentValues": [
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "quantarium",
+              "name": "Quantarium"
+            },
+            "estimate": 156929,
+            "estimateHigh": 166344,
+            "estimateLow": 147513,
+            "date": "2026-03-18",
+            "isBestHomeValue": true
+          },
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "collateral",
+              "name": "Collateral Analytics"
+            },
+            "estimate": 158000,
+            "estimateHigh": 186400,
+            "estimateLow": 129600,
+            "date": "2026-03-14",
+            "isBestHomeValue": false
+          },
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "corelogic",
+              "name": "Cotality™"
+            },
+            "estimate": 150700,
+            "estimateHigh": 164700,
+            "estimateLow": 136700,
+            "date": "2026-03-09",
+            "isBestHomeValue": false
+          }
+        ]
+      }
+    }
+  ]
+}
