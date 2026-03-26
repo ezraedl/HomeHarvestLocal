@@ -43,6 +43,7 @@ ordered_properties = [
     "estimated_value",
     "tax",
     "tax_history",
+    "property_history",
     "new_construction",
     "lot_sqft",
     "price_per_sqft",
