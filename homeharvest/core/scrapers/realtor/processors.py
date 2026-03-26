@@ -12,7 +12,8 @@ from ..models import (
     Builder,
     Advertisers,
     Office,
-    ReturnType
+    ReturnType,
+    PropertyHistoryEvent,
 )
 from .parsers import (
     parse_open_houses,
@@ -74,6 +75,43 @@ def process_advertisers(advertisers: list[dict] | None) -> Advertisers | None:
                 )
 
     return processed_advertisers
+
+
+def _parse_property_history_from_result(raw) -> list[PropertyHistoryEvent] | None:
+    """Map GraphQL property_history (search or detail) onto PropertyHistoryEvent models."""
+    if not raw or not isinstance(raw, list):
+        return None
+    events: list[PropertyHistoryEvent] = []
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        d = item.get("date")
+        parsed_date = None
+        if d is not None:
+            if isinstance(d, datetime):
+                parsed_date = d
+            elif isinstance(d, str):
+                s = d.replace("Z", "+00:00") if d.endswith("Z") else d
+                try:
+                    parsed_date = datetime.fromisoformat(s)
+                except ValueError:
+                    try:
+                        from datetime import date as date_cls
+
+                        parsed_date = datetime.combine(date_cls.fromisoformat(s[:10]), datetime.min.time())
+                    except Exception:
+                        parsed_date = None
+        try:
+            events.append(
+                PropertyHistoryEvent(
+                    date=parsed_date,
+                    event_name=item.get("event_name"),
+                    price=item.get("price"),
+                )
+            )
+        except Exception:
+            continue
+    return events if events else None
 
 
 def process_property(result: dict, mls_only: bool = False, extra_property_data: bool = False, 
@@ -143,6 +181,9 @@ def process_property(result: dict, mls_only: bool = False, extra_property_data: 
         advertisers=advertisers,
         tax=prop_details.get("tax"),
         tax_history=prop_details.get("tax_history"),
+        property_history=_parse_property_history_from_result(
+            result.get("property_history") or result.get("propertyHistory")
+        ),
         
         # Additional fields from GraphQL
         mls_status=result.get("mls_status"),

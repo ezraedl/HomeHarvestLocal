@@ -1,0 +1,1131 @@
+{
+  "query": {
+    "address": "19910 Mountville Dr, Maple Heights, OH, 44137",
+    "listing_type": "for_sale",
+    "property_type": [
+      "single_family"
+    ],
+    "return_type": "raw"
+  },
+  "scraped_at_utc": "2026-03-26T22:50:37.593448+00:00",
+  "results": [
+    {
+      "pending_date": null,
+      "listing_id": "2992512455",
+      "property_id": "3506851827",
+      "href": "https://www.realtor.com/realestateandhomes-detail/19910-Mountville-Dr_Maple-Heights_OH_44137_M35068-51827",
+      "permalink": "19910-Mountville-Dr_Maple-Heights_OH_44137_M35068-51827",
+      "list_date": "2026-03-13T18:59:39Z",
+      "status": "for_sale",
+      "mls_status": "Active",
+      "last_sold_price": 72400,
+      "last_sold_date": "2025-06-30",
+      "last_status_change_date": "2026-03-13T18:59:39Z",
+      "last_update_date": "2026-03-24T13:42:32Z",
+      "list_price": 185000,
+      "list_price_max": null,
+      "list_price_min": null,
+      "price_per_sqft": null,
+      "tags": [
+        "central_air",
+        "dishwasher",
+        "energy_efficient",
+        "washer_dryer",
+        "basement",
+        "two_or_more_stories",
+        "garage_1_or_more",
+        "garage_2_or_more",
+        "updated_kitchen",
+        "big_yard",
+        "efficient",
+        "water_view",
+        "hardwood_floors",
+        "den",
+        "groundscare",
+        "shopping"
+      ],
+      "open_houses": null,
+      "details": [
+        {
+          "category": "Bedrooms",
+          "text": [
+            "Bedrooms: 3"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Bathrooms",
+          "text": [
+            "Total Bathrooms: 2",
+            "Full Bathrooms: 1",
+            "1/2 Bathrooms: 1",
+            "Bathrooms On Main Level: 1"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Interior Features",
+          "text": [
+            "CeilingFans",
+            "StoneCounters",
+            "NaturalWoodwork"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Appliances",
+          "text": [
+            "Dryer",
+            "Dishwasher",
+            "Microwave",
+            "Range",
+            "Refrigerator",
+            "Washer"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Heating and Cooling",
+          "text": [
+            "Cooling Features: CentralAir",
+            "Heating Features: Gas, Gravity",
+            "Heating: Yes"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Other Rooms",
+          "text": [
+            "Basement Description: PartiallyFinished"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Exterior and Lot Features",
+          "text": [
+            "Fencing: BackYard, Privacy"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Land Info",
+          "text": [
+            "Land Lease: No",
+            "Lot Description: BackYard, FrontYard, Landscaped",
+            "Lot Size Acres: 0.13",
+            "Lot Size Source: PublicRecords",
+            "Lot Size Square Feet: 5663"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Garage and Parking",
+          "text": [
+            "Garage Spaces: 2",
+            "Parking Features: Detached, Garage"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Homeowners Association",
+          "text": [
+            "Association: No",
+            "Calculated Total Monthly Association Fees: 0"
+          ],
+          "parent_category": "Community"
+        },
+        {
+          "category": "School Information",
+          "text": [
+            "Elementary School District: Maple Heights CSD - 1818",
+            "High School District: Maple Heights CSD - 1818",
+            "Middle or Junior School District: Maple Heights CSD - 1818"
+          ],
+          "parent_category": "Community"
+        },
+        {
+          "category": "Other Property Info",
+          "text": [
+            "Annual Tax Amount: 2615",
+            "Source Listing Status: Active",
+            "County: Cuyahoga",
+            "Directions: I-480 E. Take exit 25A-25B-25C from I-480 E. Warrensville Rd/Warrensville Center Rd. Drive to Mountville Dr.",
+            "Tax Year: 2025",
+            "Source Property Type: Residential",
+            "Home Warranty: No",
+            "Parcel Number: 782-21-088",
+            "Postal City: MAPLE HEIGHTS",
+            "Township: Maple Heights",
+            "Property Subtype: SingleFamilyResidence"
+          ],
+          "parent_category": "Listing"
+        },
+        {
+          "category": "Building and Construction",
+          "text": [
+            "Total Square Feet Living: 0",
+            "Year Built: 1942",
+            "Construction Materials: AluminumSiding",
+            "Foundation Details: Block",
+            "Levels: OneAndOneHalf",
+            "Living Area Units: SquareFeet",
+            "Property Age: 84",
+            "Property Attached: No",
+            "Property Condition: Fixer",
+            "Roof: Shingle",
+            "Year Built Source: PublicRecords",
+            "Architectural Style: Bungalow"
+          ],
+          "parent_category": "Features"
+        },
+        {
+          "category": "Utilities",
+          "text": [
+            "Sewer: PublicSewer",
+            "Water Source: Public"
+          ],
+          "parent_category": "Features"
+        },
+        {
+          "category": "Home Features",
+          "text": [
+            "Green Energy Efficient: Appliances, Doors, Hvac, Insulation, Roof, Thermostat, WaterHeater, Windows"
+          ],
+          "parent_category": "Features"
+        }
+      ],
+      "pet_policy": null,
+      "units": null,
+      "flags": {
+        "is_contingent": null,
+        "is_pending": null,
+        "is_new_construction": null
+      },
+      "description": {
+        "type": "single_family",
+        "sqft": 0,
+        "beds": 3,
+        "baths_full": 1,
+        "baths_half": 1,
+        "lot_sqft": 5663,
+        "year_built": 1942,
+        "garage": 2,
+        "name": null,
+        "stories": 2,
+        "text": "Welcome to this beautifully renovated single-family bungalow that perfectly blends classic charm with modern updates. This inviting home features 3 spacious bedrooms and 1-1/2 bathrooms, thoughtfully updated for comfortable everyday living. Come inside to discover natural hardwood floors and rich original woodwork that add warmth and character throughout the home, complemented by energy-efficient LED lighting throughout. The fully updated kitchen showcases brand-new appliances and modern waterfall-inspired fixtures, creating a sleek and stylish space for cooking and entertaining. One bathroom has also been refreshed with contemporary waterfall-inspired fixtures, adding a spa-like touch to the home. A newly equipped laundry room with brand-new appliances adds convenience and efficiency to your daily routine. The finished basement provides additional entertainment space complete with a built-in bar, making it the perfect spot for hosting guests, game nights, or relaxing evenings at home. Outside, you'll find a detached 2-car garage and a spacious backyard, ideal for outdoor gatherings, gardening, or simply enjoying your own private retreat. The beautifully landscaped lawn enhances the home's curb appeal and creates a welcoming first impression. Conveniently located in Maple Heights, this home offers quick access to the highway for an easy commute and is less than one mile from Southgate Shopping Plaza, placing shopping, dining, and everyday essentials just minutes away. With thoughtful renovations, modern upgrades, and a highly convenient location, this move-in-ready bungalow offers comfort, style, and practicality all in one place."
+      },
+      "source": {
+        "id": "NEOH",
+        "listing_id": "5193269"
+      },
+      "hoa": {
+        "fee": 0
+      },
+      "location": {
+        "address": {
+          "street_direction": null,
+          "street_number": "19910",
+          "street_name": "Mountville",
+          "street_suffix": "Dr",
+          "line": "19910 Mountville Dr",
+          "unit": null,
+          "city": "Maple Heights",
+          "state_code": "OH",
+          "postal_code": "44137",
+          "coordinate": {
+            "lon": -81.540024,
+            "lat": 41.417674
+          }
+        },
+        "county": {
+          "name": "Cuyahoga",
+          "fips_code": "39035"
+        },
+        "neighborhoods": null,
+        "parcel": null
+      },
+      "tax_record": {
+        "cl_id": "15961B4386485497A43305FEDBFE499D",
+        "public_record_id": "15961B4386485497A43305FEDBFE499D",
+        "last_update_date": "2026-03-19",
+        "apn": null,
+        "tax_parcel_id": "befadccd-d452-4929-85ea-a6a654853931"
+      },
+      "primary_photo": {
+        "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m1159511435s.jpg"
+      },
+      "photos": [
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m1159511435s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m177603101s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m119385837s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m2482336681s.jpg",
+          "tags": [
+            {
+              "label": "living_room"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m105238650s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m2850473255s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m3532593330s.jpg",
+          "tags": [
+            {
+              "label": "kitchen"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m3284269868s.jpg",
+          "tags": [
+            {
+              "label": "dining_room"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m805359819s.jpg",
+          "tags": [
+            {
+              "label": "kitchen"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m1998767550s.jpg",
+          "tags": [
+            {
+              "label": "bedroom"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m268690666s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m1128768787s.jpg",
+          "tags": [
+            {
+              "label": "bedroom"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m2283248793s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m4290721713s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m3343323645s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m2037842009s.jpg",
+          "tags": [
+            {
+              "label": "bathroom"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m1825329276s.jpg",
+          "tags": [
+            {
+              "label": "bathroom"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m3659209166s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m1778560539s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m645612118s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m3673897670s.jpg",
+          "tags": [
+            {
+              "label": "bedroom"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m1193619889s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m182302937s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m1475355474s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m2907042047s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m3223933076s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m1212750229s.jpg",
+          "tags": [
+            {
+              "label": "living_room"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m1968491519s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m1388517602s.jpg",
+          "tags": [
+            {
+              "label": "dining_room"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m102983213s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m1256914384s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m3606524608s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m2215739118s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m2477613179s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m3279697727s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m1676308009s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m914054269s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/bcd38e9c44be0e7b9f5d0ddf80957510l-m3286105154s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            }
+          ]
+        }
+      ],
+      "advertisers": [
+        {
+          "email": "bonnieinvestments216@gmail.com",
+          "broker": {
+            "name": "Century 21 HomeStar",
+            "fulfillment_id": "1018838"
+          },
+          "type": "seller",
+          "name": "Bonniesha Howard",
+          "fulfillment_id": "4660876",
+          "builder": null,
+          "phones": [
+            {
+              "ext": "",
+              "primary": true,
+              "type": "Office",
+              "number": "4404499100"
+            },
+            {
+              "ext": "",
+              "primary": true,
+              "type": "Mobile",
+              "number": "2163243831"
+            }
+          ],
+          "office": {
+            "name": "CENTURY 21 HomeStar",
+            "email": "c21homestar@gmail.com",
+            "fulfillment_id": "1002766",
+            "href": "http://joinhomestar.com/",
+            "phones": [
+              {
+                "number": "4404499100",
+                "type": "Office",
+                "primary": true,
+                "ext": ""
+              }
+            ],
+            "mls_set": "O-NEOH-9752"
+          },
+          "corporation": null,
+          "mls_set": "A-NEOH-2021000868",
+          "nrds_id": null,
+          "state_license": "2021000868",
+          "rental_corporation": null,
+          "rental_management": null
+        }
+      ],
+      "nearbySchools": {
+        "__typename": "SchoolList",
+        "schools": [
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572931",
+              "name": "Maple Heights City School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572931",
+              "name": "Maple Heights City School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572931",
+              "name": "Maple Heights City School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198586751",
+              "name": "The Capella Institute School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198596941",
+              "name": "Ohio College Preparatory School School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198586761",
+              "name": "Randall Park High School"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198598211",
+              "name": "T2 Honors Academy"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198596011",
+              "name": "The Haley School"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          }
+        ]
+      },
+      "monthly_fees": null,
+      "one_time_fees": null,
+      "popularity": {
+        "periods": [
+          {
+            "clicks_total": 3,
+            "views_total": 340,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 2,
+            "last_n_days": 1
+          },
+          {
+            "clicks_total": 20,
+            "views_total": 2574,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 7,
+            "last_n_days": 7
+          },
+          {
+            "clicks_total": 53,
+            "views_total": 6494,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 1,
+            "saves_total": 21,
+            "last_n_days": 14
+          },
+          {
+            "clicks_total": 53,
+            "views_total": 6494,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 1,
+            "saves_total": 21,
+            "last_n_days": 21
+          },
+          {
+            "clicks_total": 53,
+            "views_total": 6494,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 1,
+            "saves_total": 21,
+            "last_n_days": 28
+          },
+          {
+            "clicks_total": null,
+            "views_total": null,
+            "dwell_time_mean": null,
+            "dwell_time_median": null,
+            "leads_total": null,
+            "shares_total": null,
+            "saves_total": null,
+            "last_n_days": 30
+          }
+        ]
+      },
+      "parking": null,
+      "terms": null,
+      "taxHistory": [
+        {
+          "__typename": "TaxHistory",
+          "tax": 2354,
+          "year": 2025,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 19990,
+            "land": 7320,
+            "total": 27310
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2607,
+          "year": 2024,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 19990,
+            "land": 7320,
+            "total": 27310
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2064,
+          "year": 2022,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 13970,
+            "land": 4450,
+            "total": 18420
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2350,
+          "year": 2021,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 13970,
+            "land": 4450,
+            "total": 18420
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1883,
+          "year": 2020,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 10570,
+            "land": 3360,
+            "total": 13930
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1872,
+          "year": 2019,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 10570,
+            "land": 3360,
+            "total": 13930
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1862,
+          "year": 2018,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 10570,
+            "land": 3360,
+            "total": 13930
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2340,
+          "year": 2017,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 10050,
+            "land": 3120,
+            "total": 13170
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1753,
+          "year": 2016,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 10050,
+            "land": 3120,
+            "total": 13170
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1381,
+          "year": 2015,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 10050,
+            "land": 3120,
+            "total": 13170
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1463,
+          "year": 2014,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 11030,
+            "land": 3430,
+            "total": 14460
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1355,
+          "year": 2013,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 11030,
+            "land": 3430,
+            "total": 14460
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1293,
+          "year": 2012,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 11030,
+            "land": 3430,
+            "total": 14460
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2267,
+          "year": 2010,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 21600,
+            "land": 5360,
+            "total": 26960
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2199,
+          "year": 2009,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 21600,
+            "land": 5360,
+            "total": 26960
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1905,
+          "year": 2008,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 23485,
+            "land": 5810,
+            "total": 29295
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2071,
+          "year": 2007,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 23490,
+            "land": 5810,
+            "total": 29300
+          }
+        }
+      ],
+      "property_history": [
+        {
+          "date": "2026-03-13",
+          "event_name": "Listed",
+          "price": 185000
+        },
+        {
+          "date": "2025-06-20",
+          "event_name": "Sold",
+          "price": 72800
+        },
+        {
+          "date": "2025-01-14",
+          "event_name": "Listed",
+          "price": 72800
+        },
+        {
+          "date": "2005-07-29",
+          "event_name": "Sold",
+          "price": 89900
+        }
+      ],
+      "estimates": {
+        "__typename": "HomeEstimates",
+        "currentValues": [
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "corelogic",
+              "name": "Cotality™"
+            },
+            "estimate": 119300,
+            "estimateHigh": 155100,
+            "estimateLow": 83500,
+            "date": "2026-03-09",
+            "isBestHomeValue": true
+          },
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "quantarium",
+              "name": "Quantarium"
+            },
+            "estimate": 184277,
+            "estimateHigh": 193490,
+            "estimateLow": 175063,
+            "date": "2026-03-18",
+            "isBestHomeValue": false
+          },
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "collateral",
+              "name": "Collateral Analytics"
+            },
+            "estimate": 76000,
+            "estimateHigh": 90400,
+            "estimateLow": 61600,
+            "date": "2026-03-14",
+            "isBestHomeValue": false
+          }
+        ]
+      }
+    }
+  ]
+}

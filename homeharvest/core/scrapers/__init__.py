@@ -239,7 +239,11 @@ class Scraper:
         self.date_from_precision = scraper_input.date_from_precision
         self.date_to_precision = scraper_input.date_to_precision
         self.foreclosure = scraper_input.foreclosure
-        self.extra_property_data = False  # TODO: temporarily disabled
+        # Must reflect scraper_input: extra fetches populate tax_history, schools, etc.
+        # (Search responses also include property_history, but that is wired in process_property.)
+        self.extra_property_data = (
+            True if scraper_input.extra_property_data is None else bool(scraper_input.extra_property_data)
+        )
         self.exclude_pending = scraper_input.exclude_pending
         self.limit = scraper_input.limit
         self.offset = scraper_input.offset
