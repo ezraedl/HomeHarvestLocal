@@ -175,6 +175,12 @@ class Advertisers(BaseModel):
     office: Office | None = None
 
 
+class PropertyHistoryEvent(BaseModel):
+    date: datetime | None = None
+    event_name: str | None = None
+    price: int | None = None
+
+
 class Property(BaseModel):
     property_url: HttpUrl
     property_id: str = Field(..., description="Unique Home identifier also known as property id")
@@ -216,6 +222,7 @@ class Property(BaseModel):
     estimated_value: int | None = None
     tax: int | None = None
     tax_history: list[TaxHistory] | None = None
+    property_history: list[PropertyHistoryEvent] | None = None
 
     advertisers: Advertisers | None = None
     
