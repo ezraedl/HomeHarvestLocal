@@ -1,0 +1,826 @@
+{
+  "query": {
+    "address": "5593 South Blvd, Maple Heights, OH, 44137",
+    "listing_type": "for_sale",
+    "property_type": [
+      "single_family"
+    ],
+    "return_type": "raw"
+  },
+  "scraped_at_utc": "2026-03-27T06:51:45.372763+00:00",
+  "results": [
+    {
+      "pending_date": null,
+      "listing_id": "2992778145",
+      "property_id": "4860259176",
+      "href": "https://www.realtor.com/realestateandhomes-detail/5593-South-Blvd_Maple-Heights_OH_44137_M48602-59176",
+      "permalink": "5593-South-Blvd_Maple-Heights_OH_44137_M48602-59176",
+      "list_date": "2026-03-20T18:12:42Z",
+      "status": "for_sale",
+      "mls_status": "Active",
+      "last_sold_price": 14000,
+      "last_sold_date": "2008-12-08",
+      "last_status_change_date": "2026-03-20T18:12:42Z",
+      "last_update_date": "2026-03-20T22:08:47Z",
+      "list_price": 109900,
+      "list_price_max": null,
+      "list_price_min": null,
+      "price_per_sqft": null,
+      "tags": [
+        "forced_air",
+        "basement",
+        "two_or_more_stories",
+        "garage_1_or_more",
+        "rental_property",
+        "investment_opportunity",
+        "maintenance",
+        "shopping"
+      ],
+      "open_houses": null,
+      "details": [
+        {
+          "category": "Bedrooms",
+          "text": [
+            "Bedrooms: 3",
+            "Bedrooms On Main Level: 3"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Other Rooms",
+          "text": [
+            "Total Rooms: 5",
+            "Basement Description: PartiallyFinished"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Bathrooms",
+          "text": [
+            "Total Bathrooms: 1",
+            "Full Bathrooms: 1",
+            "Bathrooms On Main Level: 1"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Heating and Cooling",
+          "text": [
+            "Heating Features: ForcedAir",
+            "Heating: Yes"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Land Info",
+          "text": [
+            "Land Lease: No",
+            "Lot Size Acres: 0.1332",
+            "Lot Size Source: Assessor",
+            "Lot Size Square Feet: 5802"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Garage and Parking",
+          "text": [
+            "Parking Features: Detached, Garage"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Homeowners Association",
+          "text": [
+            "Association: No",
+            "Calculated Total Monthly Association Fees: 0"
+          ],
+          "parent_category": "Community"
+        },
+        {
+          "category": "School Information",
+          "text": [
+            "Elementary School District: Maple Heights CSD - 1818",
+            "High School District: Maple Heights CSD - 1818",
+            "Middle or Junior School District: Maple Heights CSD - 1818"
+          ],
+          "parent_category": "Community"
+        },
+        {
+          "category": "Other Property Info",
+          "text": [
+            "Annual Tax Amount: 2778",
+            "Source Listing Status: Active",
+            "County: Cuyahoga",
+            "Directions: West onto South Blvd",
+            "Tax Year: 2025",
+            "Source Property Type: Residential",
+            "Home Warranty: No",
+            "Source Neighborhood: Maple Heights 04",
+            "Parcel Number: 781-17-113",
+            "Postal City: MAPLE HEIGHTS",
+            "Subdivision: Maple Heights 04",
+            "Township: Maple Heights",
+            "Property Subtype: SingleFamilyResidence"
+          ],
+          "parent_category": "Listing"
+        },
+        {
+          "category": "Building and Construction",
+          "text": [
+            "Total Square Feet Living: 0",
+            "Year Built: 1943",
+            "Construction Materials: AluminumSiding",
+            "Levels: OneAndOneHalf",
+            "Living Area Units: SquareFeet",
+            "Property Age: 83",
+            "Roof: Asphalt, Fiberglass",
+            "Year Built Source: Assessor",
+            "Architectural Style: Bungalow, CapeCod"
+          ],
+          "parent_category": "Features"
+        },
+        {
+          "category": "Utilities",
+          "text": [
+            "Sewer: PublicSewer",
+            "Water Source: Public"
+          ],
+          "parent_category": "Features"
+        }
+      ],
+      "pet_policy": null,
+      "units": null,
+      "flags": {
+        "is_contingent": null,
+        "is_pending": null,
+        "is_new_construction": null
+      },
+      "description": {
+        "type": "single_family",
+        "sqft": 0,
+        "beds": 3,
+        "baths_full": 1,
+        "baths_half": null,
+        "lot_sqft": 5802,
+        "year_built": 1943,
+        "garage": null,
+        "name": null,
+        "stories": 2,
+        "text": "Strong investment opportunity in a high-demand Maple Heights neighborhood known for strong appreciation and rental growth. This single-family home is currently tenant occupied with a long-term tenant paying $1,145 per month, providing immediate, consistent cash flow from day one. The property offers a functional layout with solid bones and has been well maintained, minimizing immediate deferred maintenance concerns. Additional value-add potential exists with a partially finished basement, creating an excellent opportunity for added living space and increased resale value for a future flip or higher rents. Located in a strong rental area with convenient access to schools, shopping, dining, and major highways. Ideal for investors looking to add a stable, income-producing asset with upside potential to their portfolio."
+      },
+      "source": {
+        "id": "NEOH",
+        "listing_id": "5194969"
+      },
+      "hoa": {
+        "fee": 0
+      },
+      "location": {
+        "address": {
+          "street_direction": null,
+          "street_number": "5593",
+          "street_name": "South",
+          "street_suffix": "Blvd",
+          "line": "5593 South Blvd",
+          "unit": null,
+          "city": "Maple Heights",
+          "state_code": "OH",
+          "postal_code": "44137",
+          "coordinate": {
+            "lon": -81.553717,
+            "lat": 41.409314
+          }
+        },
+        "county": {
+          "name": "Cuyahoga",
+          "fips_code": "39035"
+        },
+        "neighborhoods": null,
+        "parcel": null
+      },
+      "tax_record": {
+        "cl_id": "A4C3A0560FEC821DB6ABAFE6B3E2F2FD",
+        "public_record_id": "A4C3A0560FEC821DB6ABAFE6B3E2F2FD",
+        "last_update_date": "2026-03-19",
+        "apn": null,
+        "tax_parcel_id": "d34a5f78-84f6-4923-a863-53fe88992fc1"
+      },
+      "primary_photo": {
+        "href": "https://ap.rdcpix.com/b9fc7e1dd6419b03a847f2c523f0513bl-m1729061356s.jpg"
+      },
+      "photos": [
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/b9fc7e1dd6419b03a847f2c523f0513bl-m1729061356s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/b9fc7e1dd6419b03a847f2c523f0513bl-m105365501s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/b9fc7e1dd6419b03a847f2c523f0513bl-m1232750271s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/b9fc7e1dd6419b03a847f2c523f0513bl-m3795429141s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        }
+      ],
+      "advertisers": [
+        {
+          "email": "kim.lewis@heqrealty.com",
+          "broker": {
+            "name": "Home Equity Realty Group - Broker",
+            "fulfillment_id": "4844122"
+          },
+          "type": "seller",
+          "name": "Kim Lewis",
+          "fulfillment_id": "3194895",
+          "builder": null,
+          "phones": [
+            {
+              "ext": "",
+              "primary": true,
+              "type": "Mobile",
+              "number": "4407995638"
+            },
+            {
+              "ext": "",
+              "primary": true,
+              "type": "Office",
+              "number": "3309522244"
+            },
+            {
+              "ext": "",
+              "primary": true,
+              "type": "Other",
+              "number": "2397229936"
+            }
+          ],
+          "office": {
+            "name": "Home Equity Realty Group",
+            "email": "info@heqrealty.com",
+            "fulfillment_id": "4844125",
+            "href": "WWW.HEQREALTY.COM",
+            "phones": [
+              {
+                "number": "3309522244",
+                "type": "Office",
+                "primary": true,
+                "ext": ""
+              }
+            ],
+            "mls_set": "O-NEOH-20422"
+          },
+          "corporation": null,
+          "mls_set": "A-NEOH-W2017004453",
+          "nrds_id": "680501037",
+          "state_license": "2017004453",
+          "rental_corporation": null,
+          "rental_management": null
+        },
+        {
+          "email": "garrett.rowan@herrealtors.com",
+          "broker": {
+            "name": "Home Equity Realty Group - Broker",
+            "fulfillment_id": "4844122"
+          },
+          "type": "co_seller",
+          "name": "Garrett Rowan",
+          "fulfillment_id": "3506561",
+          "builder": null,
+          "phones": [
+            {
+              "ext": "",
+              "primary": true,
+              "type": "office",
+              "number": "7403411965"
+            }
+          ],
+          "office": {
+            "name": "Home Equity Realty Group",
+            "email": "info@heqrealty.com",
+            "fulfillment_id": "4844125",
+            "href": "WWW.HEQREALTY.COM",
+            "phones": [
+              {
+                "number": "3309522244",
+                "type": "Office",
+                "primary": false,
+                "ext": ""
+              }
+            ],
+            "mls_set": "O-NEOH-20422"
+          },
+          "corporation": null,
+          "mls_set": "A-NEOH-2018003852",
+          "nrds_id": null,
+          "state_license": "2025003866",
+          "rental_corporation": null,
+          "rental_management": null
+        }
+      ],
+      "nearbySchools": {
+        "__typename": "SchoolList",
+        "schools": [
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572931",
+              "name": "Maple Heights City School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572931",
+              "name": "Maple Heights City School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572931",
+              "name": "Maple Heights City School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198586751",
+              "name": "The Capella Institute School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198596941",
+              "name": "Ohio College Preparatory School School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572931",
+              "name": "Maple Heights City School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198598211",
+              "name": "T2 Honors Academy"
+            }
+          }
+        ]
+      },
+      "monthly_fees": null,
+      "one_time_fees": null,
+      "popularity": {
+        "periods": [
+          {
+            "clicks_total": 3,
+            "views_total": 577,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 0,
+            "last_n_days": 1
+          },
+          {
+            "clicks_total": 27,
+            "views_total": 3727,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 3,
+            "last_n_days": 7
+          },
+          {
+            "clicks_total": 27,
+            "views_total": 3727,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 3,
+            "last_n_days": 14
+          },
+          {
+            "clicks_total": 27,
+            "views_total": 3727,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 3,
+            "last_n_days": 21
+          },
+          {
+            "clicks_total": 27,
+            "views_total": 3727,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 3,
+            "last_n_days": 28
+          },
+          {
+            "clicks_total": null,
+            "views_total": null,
+            "dwell_time_mean": null,
+            "dwell_time_median": null,
+            "leads_total": null,
+            "shares_total": null,
+            "saves_total": null,
+            "last_n_days": 30
+          }
+        ]
+      },
+      "parking": null,
+      "terms": null,
+      "taxHistory": [
+        {
+          "__typename": "TaxHistory",
+          "tax": 2778,
+          "year": 2025,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 25830,
+            "land": 7350,
+            "total": 33180
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 3086,
+          "year": 2024,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 25830,
+            "land": 7350,
+            "total": 33180
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2276,
+          "year": 2022,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 15470,
+            "land": 5250,
+            "total": 20720
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2803,
+          "year": 2021,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 15470,
+            "land": 5250,
+            "total": 20720
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2078,
+          "year": 2020,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 11730,
+            "land": 3990,
+            "total": 15720
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2067,
+          "year": 2019,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 11730,
+            "land": 3990,
+            "total": 15720
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2056,
+          "year": 2018,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 11730,
+            "land": 3990,
+            "total": 15720
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2203,
+          "year": 2017,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 8820,
+            "land": 5150,
+            "total": 13970
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1839,
+          "year": 2016,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 8820,
+            "land": 5150,
+            "total": 13970
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1465,
+          "year": 2015,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 8820,
+            "land": 5150,
+            "total": 13970
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1555,
+          "year": 2014,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 9700,
+            "land": 5670,
+            "total": 15370
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1440,
+          "year": 2013,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 9700,
+            "land": 5670,
+            "total": 15370
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1375,
+          "year": 2012,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 9700,
+            "land": 5670,
+            "total": 15370
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 6501,
+          "year": 2010,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 22440,
+            "land": 6340,
+            "total": 28780
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 6794,
+          "year": 2009,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 22440,
+            "land": 6340,
+            "total": 28780
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2035,
+          "year": 2008,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 24395,
+            "land": 6895,
+            "total": 31290
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2329,
+          "year": 2007,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 24400,
+            "land": 6900,
+            "total": 31300
+          }
+        }
+      ],
+      "property_history": [
+        {
+          "date": "2026-03-20",
+          "event_name": "Listed",
+          "price": 109900
+        },
+        {
+          "date": "2021-08-09",
+          "event_name": "Listing removed",
+          "price": 0
+        },
+        {
+          "date": "2021-07-23",
+          "event_name": "Listed for rent",
+          "price": 1000
+        },
+        {
+          "date": "2021-04-27",
+          "event_name": "Sold",
+          "price": 64000
+        },
+        {
+          "date": "2018-12-22",
+          "event_name": "Listing removed",
+          "price": 850
+        },
+        {
+          "date": "2018-07-01",
+          "event_name": "Listing removed",
+          "price": 850
+        },
+        {
+          "date": "2018-06-15",
+          "event_name": "Listed for rent",
+          "price": 850
+        },
+        {
+          "date": "2017-07-11",
+          "event_name": "Sold",
+          "price": 34500
+        },
+        {
+          "date": "2017-05-18",
+          "event_name": "Price Changed",
+          "price": 37900
+        },
+        {
+          "date": "2017-04-28",
+          "event_name": "Listed",
+          "price": 40000
+        },
+        {
+          "date": "1988-04-01",
+          "event_name": "Sold",
+          "price": 46416
+        },
+        {
+          "date": "1985-02-26",
+          "event_name": "Sold",
+          "price": 39000
+        },
+        {
+          "date": "1980-11-14",
+          "event_name": "Sold",
+          "price": 43500
+        },
+        {
+          "date": "1977-10-01",
+          "event_name": "Sold",
+          "price": 34000
+        }
+      ],
+      "estimates": {
+        "__typename": "HomeEstimates",
+        "currentValues": [
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "corelogic",
+              "name": "Cotality™"
+            },
+            "estimate": 106800,
+            "estimateHigh": 138500,
+            "estimateLow": 75100,
+            "date": "2026-03-09",
+            "isBestHomeValue": true
+          },
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "collateral",
+              "name": "Collateral Analytics"
+            },
+            "estimate": 103000,
+            "estimateHigh": 115400,
+            "estimateLow": 90600,
+            "date": "2026-03-14",
+            "isBestHomeValue": false
+          },
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "quantarium",
+              "name": "Quantarium"
+            },
+            "estimate": 107472,
+            "estimateHigh": 134340,
+            "estimateLow": 80604,
+            "date": "2026-03-18",
+            "isBestHomeValue": false
+          }
+        ]
+      }
+    }
+  ]
+}
