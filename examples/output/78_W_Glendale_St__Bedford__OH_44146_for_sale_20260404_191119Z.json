@@ -1,0 +1,932 @@
+{
+  "query": {
+    "address": "78 W Glendale St, Bedford, OH 44146",
+    "listing_type": "for_sale",
+    "property_type": [
+      "single_family"
+    ],
+    "return_type": "raw"
+  },
+  "scraped_at_utc": "2026-04-04T19:11:19.391834+00:00",
+  "results": [
+    {
+      "pending_date": null,
+      "listing_id": "2993171601",
+      "property_id": "3371356010",
+      "href": "https://www.realtor.com/realestateandhomes-detail/78-W-Glendale-St_Bedford_OH_44146_M33713-56010",
+      "permalink": "78-W-Glendale-St_Bedford_OH_44146_M33713-56010",
+      "list_date": "2026-04-01T21:58:08Z",
+      "status": "for_sale",
+      "mls_status": "Active",
+      "last_sold_price": 109000,
+      "last_sold_date": "2004-06-30",
+      "last_status_change_date": "2026-04-01T21:58:08Z",
+      "last_update_date": "2026-04-03T19:45:30Z",
+      "list_price": 110000,
+      "list_price_max": null,
+      "list_price_min": null,
+      "price_per_sqft": 58,
+      "tags": [
+        "community_outdoor_space",
+        "forced_air",
+        "basement",
+        "two_or_more_stories",
+        "rental_property",
+        "game_room",
+        "shopping",
+        "fixer_upper"
+      ],
+      "open_houses": null,
+      "details": [
+        {
+          "category": "Bedrooms",
+          "text": [
+            "Bedrooms: 3",
+            "Bedrooms On Main Level: 1"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Bathrooms",
+          "text": [
+            "Total Bathrooms: 2",
+            "Full Bathrooms: 2",
+            "Bathrooms On Main Level: 1"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Heating and Cooling",
+          "text": [
+            "Heating Features: ForcedAir, Gas",
+            "Heating: Yes"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Other Rooms",
+          "text": [
+            "Basement Description: Unfinished"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Land Info",
+          "text": [
+            "Land Lease: No",
+            "Lot Size Acres: 0.2009",
+            "Lot Size Source: PublicRecords",
+            "Lot Size Square Feet: 8751"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Exterior and Lot Features",
+          "text": [
+            "Patio And Porch Features: Enclosed, Patio, Porch",
+            "Patio: Yes",
+            "Porch: Yes"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Garage and Parking",
+          "text": [
+            "Parking Features: Driveway"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Homeowners Association",
+          "text": [
+            "Association: No",
+            "Calculated Total Monthly Association Fees: 0"
+          ],
+          "parent_category": "Community"
+        },
+        {
+          "category": "School Information",
+          "text": [
+            "Elementary School District: Bedford CSD - 1803",
+            "High School District: Bedford CSD - 1803",
+            "Middle or Junior School District: Bedford CSD - 1803"
+          ],
+          "parent_category": "Community"
+        },
+        {
+          "category": "Other Property Info",
+          "text": [
+            "Annual Tax Amount: 2797",
+            "Source Listing Status: Active",
+            "County: Cuyahoga",
+            "Directions: From I-271, take the Broadway Ave exit and head toward Bedford. Turn onto W Glendale St; 78 W Glendale will be on your left.",
+            "Tax Year: 2025",
+            "Source Property Type: Residential",
+            "Home Warranty: No",
+            "Parcel Number: 812-19-037",
+            "Postal City: BEDFORD",
+            "Township: Bedford",
+            "Property Subtype: SingleFamilyResidence"
+          ],
+          "parent_category": "Listing"
+        },
+        {
+          "category": "Building and Construction",
+          "text": [
+            "Total Square Feet Living: 1896",
+            "Year Built: 1952",
+            "Above Grade Finished Area: 1896",
+            "Above Grade Finished Area Source: Realist",
+            "Construction Materials: AluminumSiding, VinylSiding",
+            "Levels: Two",
+            "Living Area Units: SquareFeet",
+            "Property Age: 74",
+            "Property Condition: Fixer",
+            "Roof: Asphalt, Shingle",
+            "Levels or Stories: 2",
+            "Total Above Grade Sqft Area: 1896",
+            "Year Built Source: PublicRecords",
+            "Architectural Style: Colonial"
+          ],
+          "parent_category": "Features"
+        },
+        {
+          "category": "Utilities",
+          "text": [
+            "Sewer: PublicSewer",
+            "Water Source: Public"
+          ],
+          "parent_category": "Features"
+        }
+      ],
+      "pet_policy": null,
+      "units": null,
+      "flags": {
+        "is_contingent": null,
+        "is_pending": null,
+        "is_new_construction": null
+      },
+      "description": {
+        "type": "single_family",
+        "sqft": 1896,
+        "beds": 3,
+        "baths_full": 2,
+        "baths_half": null,
+        "lot_sqft": 8751,
+        "year_built": 1952,
+        "garage": null,
+        "name": null,
+        "stories": 2,
+        "text": "3-bedroom 2 bath home located in historic Bedford, ready for full renovation. Located in a nice suburb with convenient access to major freeways, as well as nearby local shops, restaurants for everyday living. This property offers a solid opportunity for investors or buyers looking to complete a full rehab project. Walk-out basement offers potential for added living space, including additional bedrooms or a finished recreation area. Investor highlights: - Estimated ARV: $220,000+ based on neighborhood comps -Strong rental potential - Suitable for fix & flip or long-term hold - Full rehab required Owner-occupant highlights: - Opportunity to customize finishes and layout to your preferences - Potential to build equity through renovation - Located in a well-established community with access to daily needs No wholesale or assignments. Cash preferred. No blind offers. Buyer to perform their own due diligence. All information deemed accurate but not guaranteed. Property is being sold as-is."
+      },
+      "source": {
+        "id": "NEOH",
+        "listing_id": "5197897"
+      },
+      "hoa": {
+        "fee": 0
+      },
+      "location": {
+        "address": {
+          "street_direction": "W",
+          "street_number": "78",
+          "street_name": "Glendale",
+          "street_suffix": "Rd",
+          "line": "78 W Glendale Rd",
+          "unit": null,
+          "city": "Bedford",
+          "state_code": "OH",
+          "postal_code": "44146",
+          "coordinate": {
+            "lon": -81.544773,
+            "lat": 41.395528
+          }
+        },
+        "county": {
+          "name": "Cuyahoga",
+          "fips_code": "39035"
+        },
+        "neighborhoods": null,
+        "parcel": null
+      },
+      "tax_record": {
+        "cl_id": "A94C5871473E88A4E8AFC98BF116B8E5",
+        "public_record_id": "A94C5871473E88A4E8AFC98BF116B8E5",
+        "last_update_date": "2026-03-19",
+        "apn": null,
+        "tax_parcel_id": "cd1e7186-ff58-4aeb-a70d-048a11a6973d"
+      },
+      "primary_photo": {
+        "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m1048553716s.jpg"
+      },
+      "photos": [
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m1048553716s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m1256659471s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m2432343544s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m3358248404s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m2451095164s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m3541079186s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m436639573s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m143288662s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m1910950785s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m1767254742s.jpg",
+          "tags": [
+            {
+              "label": "kitchen"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m1483398689s.jpg",
+          "tags": [
+            {
+              "label": "bathroom"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m3435348199s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m331770584s.jpg",
+          "tags": [
+            {
+              "label": "bathroom"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m720638069s.jpg",
+          "tags": [
+            {
+              "label": "kitchen"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m2794382368s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m1079499051s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m844729330s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m35387052s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m1791831457s.jpg",
+          "tags": [
+            {
+              "label": "unknown"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m2969232477s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m534618663s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/a1a0886c074cf98120449fb72a8194b5l-m974971795s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        }
+      ],
+      "advertisers": [
+        {
+          "email": "ebonysrealty@gmail.com",
+          "broker": {
+            "name": "Plum Tree Realty LLC",
+            "fulfillment_id": "0"
+          },
+          "type": "seller",
+          "name": "Ebony  Davis",
+          "fulfillment_id": "4910674",
+          "builder": null,
+          "phones": [
+            {
+              "ext": "",
+              "primary": true,
+              "type": "Mobile",
+              "number": "2162326426"
+            },
+            {
+              "ext": "",
+              "primary": true,
+              "type": "Office",
+              "number": "2162981066"
+            }
+          ],
+          "office": {
+            "name": "Plum Tree Realty",
+            "email": "support@PlumTreeRealty.com",
+            "fulfillment_id": "0",
+            "href": null,
+            "phones": [
+              {
+                "number": "5134435060",
+                "type": "Office",
+                "primary": true,
+                "ext": null
+              }
+            ],
+            "mls_set": "O-NEOH-20605"
+          },
+          "corporation": null,
+          "mls_set": "A-NEOH-2021007328",
+          "nrds_id": "657025034",
+          "state_license": "2021007328",
+          "rental_corporation": null,
+          "rental_management": null
+        }
+      ],
+      "nearbySchools": {
+        "__typename": "SchoolList",
+        "schools": [
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198581851",
+              "name": "Bedford City School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198581851",
+              "name": "Bedford City School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198581851",
+              "name": "Bedford City School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198581851",
+              "name": "Bedford City School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198581851",
+              "name": "Bedford City School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198596941",
+              "name": "Ohio College Preparatory School School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198586751",
+              "name": "The Capella Institute School District"
+            }
+          }
+        ]
+      },
+      "monthly_fees": null,
+      "one_time_fees": null,
+      "popularity": {
+        "periods": [
+          {
+            "clicks_total": 16,
+            "views_total": 948,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 0,
+            "last_n_days": 1
+          },
+          {
+            "clicks_total": 39,
+            "views_total": 2764,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 7,
+            "last_n_days": 7
+          },
+          {
+            "clicks_total": 39,
+            "views_total": 2764,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 7,
+            "last_n_days": 14
+          },
+          {
+            "clicks_total": 39,
+            "views_total": 2764,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 7,
+            "last_n_days": 21
+          },
+          {
+            "clicks_total": 39,
+            "views_total": 2764,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 7,
+            "last_n_days": 28
+          },
+          {
+            "clicks_total": null,
+            "views_total": null,
+            "dwell_time_mean": null,
+            "dwell_time_median": null,
+            "leads_total": null,
+            "shares_total": null,
+            "saves_total": null,
+            "last_n_days": 30
+          }
+        ]
+      },
+      "parking": null,
+      "terms": null,
+      "taxHistory": [
+        {
+          "__typename": "TaxHistory",
+          "tax": 5440,
+          "year": 2025,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 39870,
+            "land": 8370,
+            "total": 48240
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 4170,
+          "year": 2024,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 39870,
+            "land": 8370,
+            "total": 48240
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 4496,
+          "year": 2022,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 24150,
+            "land": 6090,
+            "total": 30240
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 4267,
+          "year": 2021,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 24150,
+            "land": 6090,
+            "total": 30240
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 3911,
+          "year": 2020,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 20300,
+            "land": 5110,
+            "total": 25410
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 3439,
+          "year": 2019,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 20300,
+            "land": 5110,
+            "total": 25410
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2958,
+          "year": 2018,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 20300,
+            "land": 5110,
+            "total": 25410
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2755,
+          "year": 2017,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 20020,
+            "land": 4970,
+            "total": 24990
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2932,
+          "year": 2016,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 20020,
+            "land": 4970,
+            "total": 24990
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2000,
+          "year": 2015,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 20020,
+            "land": 4970,
+            "total": 24990
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1959,
+          "year": 2014,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 19640,
+            "land": 4870,
+            "total": 24510
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1815,
+          "year": 2013,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 19640,
+            "land": 4870,
+            "total": 24510
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1771,
+          "year": 2012,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 19640,
+            "land": 4870,
+            "total": 24510
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 7720,
+          "year": 2010,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 25480,
+            "land": 6690,
+            "total": 32170
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 4731,
+          "year": 2009,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 25480,
+            "land": 6690,
+            "total": 32170
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2018,
+          "year": 2008,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 28945,
+            "land": 7595,
+            "total": 36540
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 2015,
+          "year": 2007,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 28950,
+            "land": 7600,
+            "total": 36550
+          }
+        }
+      ],
+      "property_history": [
+        {
+          "date": "2026-04-02",
+          "event_name": "Price Changed",
+          "price": 110000
+        },
+        {
+          "date": "2026-04-01",
+          "event_name": "Listed",
+          "price": 11000
+        },
+        {
+          "date": "2004-07-01",
+          "event_name": "Listing removed",
+          "price": 109000
+        },
+        {
+          "date": "2004-06-30",
+          "event_name": "Sold",
+          "price": 109000
+        },
+        {
+          "date": "2003-11-30",
+          "event_name": "Listed",
+          "price": 109500
+        }
+      ],
+      "estimates": {
+        "__typename": "HomeEstimates",
+        "currentValues": [
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "collateral",
+              "name": "Collateral Analytics"
+            },
+            "estimate": 162000,
+            "estimateHigh": 199300,
+            "estimateLow": 124700,
+            "date": "2026-03-14",
+            "isBestHomeValue": true
+          },
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "quantarium",
+              "name": "Quantarium"
+            },
+            "estimate": 165816,
+            "estimateHigh": 207270,
+            "estimateLow": 124362,
+            "date": "2026-04-01",
+            "isBestHomeValue": false
+          },
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "corelogic",
+              "name": "Cotality™"
+            },
+            "estimate": 151200,
+            "estimateHigh": 190200,
+            "estimateLow": 112100,
+            "date": "2026-03-09",
+            "isBestHomeValue": false
+          }
+        ]
+      }
+    }
+  ]
+}
