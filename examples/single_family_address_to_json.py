@@ -27,7 +27,7 @@ from homeharvest import scrape_property
 # - "San Diego, CA 92104" (if the API resolves it to an address-like geo result)
 #ADDRESS = "2051 W 18th St, Cleveland, OH 44113"
 
-ADDRESS = "78 W Glendale Ave, Bedford, OH 44146"
+ADDRESS = "1059 E 76th St, Cleveland, OH 44103"
 
 def _safe_filename(s: str, max_len: int = 90) -> str:
     # Keep filenames readable while stripping characters that often break paths.

@@ -1,0 +1,709 @@
+{
+  "query": {
+    "address": "1059 E 76th St, Cleveland, OH 44103",
+    "listing_type": "for_sale",
+    "property_type": [
+      "single_family"
+    ],
+    "return_type": "raw"
+  },
+  "scraped_at_utc": "2026-04-04T22:01:51.298809+00:00",
+  "results": [
+    {
+      "pending_date": null,
+      "listing_id": "2993073776",
+      "property_id": "4033144212",
+      "href": "https://www.realtor.com/realestateandhomes-detail/1059-E-76th-St_Cleveland_OH_44103_M40331-44212",
+      "permalink": "1059-E-76th-St_Cleveland_OH_44103_M40331-44212",
+      "list_date": "2026-03-30T17:04:26Z",
+      "status": "for_sale",
+      "mls_status": "Active",
+      "last_sold_price": 27750,
+      "last_sold_date": "2013-12-30",
+      "last_status_change_date": "2026-03-30T17:04:26Z",
+      "last_update_date": "2026-03-30T19:08:50Z",
+      "list_price": 55000,
+      "list_price_max": null,
+      "list_price_min": null,
+      "price_per_sqft": 36,
+      "tags": [
+        "forced_air",
+        "laundry_room",
+        "basement",
+        "two_or_more_stories"
+      ],
+      "open_houses": null,
+      "details": [
+        {
+          "category": "Bedrooms",
+          "text": [
+            "Bedrooms: 3",
+            "Bedrooms On Main Level: 1"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Other Rooms",
+          "text": [
+            "Total Rooms: 7",
+            "Basement Description: Unfinished"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Bathrooms",
+          "text": [
+            "Total Bathrooms: 1",
+            "Full Bathrooms: 1",
+            "Bathrooms On Main Level: 1"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Appliances",
+          "text": [
+            "Range",
+            "Refrigerator",
+            "Laundry Features: InBasement"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Heating and Cooling",
+          "text": [
+            "Cooling Features: CeilingFans",
+            "Heating Features: ForcedAir",
+            "Heating: Yes",
+            "Ceiling Fans: Yes"
+          ],
+          "parent_category": "Interior"
+        },
+        {
+          "category": "Land Info",
+          "text": [
+            "Land Lease: No",
+            "Lot Size Acres: 0.0603",
+            "Lot Size Dimensions: 35x75",
+            "Lot Size Source: Assessor",
+            "Lot Size Square Feet: 2627"
+          ],
+          "parent_category": "Exterior"
+        },
+        {
+          "category": "Homeowners Association",
+          "text": [
+            "Association: No",
+            "Calculated Total Monthly Association Fees: 0"
+          ],
+          "parent_category": "Community"
+        },
+        {
+          "category": "School Information",
+          "text": [
+            "Elementary School District: Cleveland Municipal - 1809",
+            "High School District: Cleveland Municipal - 1809",
+            "Middle or Junior School District: Cleveland Municipal - 1809"
+          ],
+          "parent_category": "Community"
+        },
+        {
+          "category": "Other Property Info",
+          "text": [
+            "Annual Tax Amount: 5756",
+            "Source Listing Status: Active",
+            "County: Cuyahoga",
+            "Directions: Between Korman Ave and Donald Ave.",
+            "Tax Year: 2025",
+            "Source Property Type: Residential",
+            "Home Warranty: No",
+            "Source Neighborhood: Peter Higgins Sub",
+            "Parcel Number: 105-31-042",
+            "Postal City: CLEVELAND",
+            "Subdivision: Peter Higgins Sub",
+            "Township: Cleveland",
+            "Property Subtype: SingleFamilyResidence"
+          ],
+          "parent_category": "Listing"
+        },
+        {
+          "category": "Building and Construction",
+          "text": [
+            "Total Square Feet Living: 1512",
+            "Year Built: 1890",
+            "Above Grade Finished Area: 1512",
+            "Above Grade Finished Area Source: Assessor",
+            "Construction Materials: VinylSiding",
+            "Levels: OneAndOneHalf",
+            "Living Area Units: SquareFeet",
+            "Property Age: 136",
+            "Roof: Shingle",
+            "Total Above Grade Sqft Area: 1512",
+            "Year Built Source: PublicRecords",
+            "Architectural Style: CapeCod"
+          ],
+          "parent_category": "Features"
+        },
+        {
+          "category": "Utilities",
+          "text": [
+            "Sewer: PublicSewer",
+            "Water Source: Public"
+          ],
+          "parent_category": "Features"
+        }
+      ],
+      "pet_policy": null,
+      "units": null,
+      "flags": {
+        "is_contingent": null,
+        "is_pending": null,
+        "is_new_construction": null
+      },
+      "description": {
+        "type": "single_family",
+        "sqft": 1512,
+        "beds": 3,
+        "baths_full": 1,
+        "baths_half": null,
+        "lot_sqft": 2627,
+        "year_built": 1890,
+        "garage": null,
+        "name": null,
+        "stories": 2,
+        "text": "Great opportunity in Cleveland! This 3-bedroom, 1-bath Cape Cod offers over 1,500 square feet of total living space including a full basement. Built in 1890 with classic character, the home features vinyl siding, a gable roof with asphalt shingles, forced-air heat, and public water and sewer. The layout includes one bedroom on the main floor with additional bedrooms upstairs, plus an unfinished basement offering storage or future potential. Laundry is located in the basement. Appliances including range and refrigerator convey with the sale, along with all items currently in the home. Situated on a platted city lot, this property is ideal for investors or owner-occupants looking for an affordable single-family home."
+      },
+      "source": {
+        "id": "NEOH",
+        "listing_id": "5187889"
+      },
+      "hoa": {
+        "fee": 0
+      },
+      "location": {
+        "address": {
+          "street_direction": "E",
+          "street_number": "1059",
+          "street_name": "76th",
+          "street_suffix": "St",
+          "line": "1059 E 76th St",
+          "unit": null,
+          "city": "Cleveland",
+          "state_code": "OH",
+          "postal_code": "44103",
+          "coordinate": {
+            "lon": -81.63593,
+            "lat": 41.526058
+          }
+        },
+        "county": {
+          "name": "Cuyahoga",
+          "fips_code": "39035"
+        },
+        "neighborhoods": [
+          {
+            "name": "St. Clair - Superior"
+          }
+        ],
+        "parcel": null
+      },
+      "tax_record": {
+        "cl_id": "FE72D2C1D5FDAC965F87CC5C92AC1845",
+        "public_record_id": "FE72D2C1D5FDAC965F87CC5C92AC1845",
+        "last_update_date": "2026-03-19",
+        "apn": null,
+        "tax_parcel_id": "6152bb8c-9f8a-4d40-ae9b-d8f1be30dc9c"
+      },
+      "primary_photo": {
+        "href": "https://ap.rdcpix.com/b6fb8a6ac14bbc985300c9eb4405fe72l-m1028939108s.jpg"
+      },
+      "photos": [
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/b6fb8a6ac14bbc985300c9eb4405fe72l-m1028939108s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/b6fb8a6ac14bbc985300c9eb4405fe72l-m2859525065s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        },
+        {
+          "title": null,
+          "href": "https://ap.rdcpix.com/b6fb8a6ac14bbc985300c9eb4405fe72l-m2376674565s.jpg",
+          "tags": [
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            },
+            {
+              "label": "exterior"
+            }
+          ]
+        }
+      ],
+      "advertisers": [
+        {
+          "email": "asoneinvestments216@gmail.com",
+          "broker": {
+            "name": "Exp Realty, Llc. -OH - Broker",
+            "fulfillment_id": "3052453"
+          },
+          "type": "seller",
+          "name": "Lovie Hogan",
+          "fulfillment_id": "4897978",
+          "builder": null,
+          "phones": [
+            {
+              "ext": "",
+              "primary": true,
+              "type": "BUSINESS_MOBILE",
+              "number": "2165419164"
+            }
+          ],
+          "office": {
+            "name": "Exp Realty, Llc.",
+            "email": "oh.broker@exprealty.net",
+            "fulfillment_id": "3052454",
+            "href": "exprealty.com",
+            "phones": [
+              {
+                "number": "8662124991",
+                "type": "Office",
+                "primary": true,
+                "ext": ""
+              }
+            ],
+            "mls_set": "O-NEOH-20050"
+          },
+          "corporation": null,
+          "mls_set": "A-NEOH-2022002197",
+          "nrds_id": "657024972",
+          "state_license": "",
+          "rental_corporation": null,
+          "rental_management": null
+        }
+      ],
+      "nearbySchools": {
+        "__typename": "SchoolList",
+        "schools": [
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572221",
+              "name": "Cleveland Metropolitan School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572221",
+              "name": "Cleveland Metropolitan School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198587951",
+              "name": "Horizon Science Academy-Cleveland Middle School"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198571421",
+              "name": null
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198582751",
+              "name": "Horizon Science Academy Cleveland"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198572221",
+              "name": "Cleveland Metropolitan School District"
+            }
+          },
+          {
+            "district": {
+              "__typename": "SchoolDistrict",
+              "id": "06198586711",
+              "name": "Ohio Connections Academy Inc"
+            }
+          }
+        ]
+      },
+      "monthly_fees": null,
+      "one_time_fees": null,
+      "popularity": {
+        "periods": [
+          {
+            "clicks_total": 1,
+            "views_total": 302,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 0,
+            "last_n_days": 1
+          },
+          {
+            "clicks_total": 7,
+            "views_total": 3013,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 0,
+            "last_n_days": 7
+          },
+          {
+            "clicks_total": 7,
+            "views_total": 3013,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 0,
+            "last_n_days": 14
+          },
+          {
+            "clicks_total": 7,
+            "views_total": 3013,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 0,
+            "last_n_days": 21
+          },
+          {
+            "clicks_total": 7,
+            "views_total": 3013,
+            "dwell_time_mean": 0,
+            "dwell_time_median": 0,
+            "leads_total": 0,
+            "shares_total": 0,
+            "saves_total": 0,
+            "last_n_days": 28
+          },
+          {
+            "clicks_total": null,
+            "views_total": null,
+            "dwell_time_mean": null,
+            "dwell_time_median": null,
+            "leads_total": null,
+            "shares_total": null,
+            "saves_total": null,
+            "last_n_days": 30
+          }
+        ]
+      },
+      "parking": null,
+      "terms": null,
+      "taxHistory": [
+        {
+          "__typename": "TaxHistory",
+          "tax": 1278,
+          "year": 2025,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 17360,
+            "land": 2140,
+            "total": 19500
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1290,
+          "year": 2024,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 17360,
+            "land": 2140,
+            "total": 19500
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1586,
+          "year": 2022,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 11340,
+            "land": 910,
+            "total": 12250
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 261,
+          "year": 2021,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 11340,
+            "land": 910,
+            "total": 12250
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 154,
+          "year": 2020,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 9770,
+            "land": 770,
+            "total": 10540
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 142,
+          "year": 2019,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 9770,
+            "land": 770,
+            "total": 10540
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 142,
+          "year": 2018,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 9770,
+            "land": 770,
+            "total": 10540
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 390,
+          "year": 2017,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 12080,
+            "land": 1400,
+            "total": 13480
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 387,
+          "year": 2016,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 12080,
+            "land": 1400,
+            "total": 13480
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 386,
+          "year": 2015,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 12080,
+            "land": 1400,
+            "total": 13480
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 1100,
+          "year": 2014,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 12080,
+            "land": 1400,
+            "total": 13480
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 826,
+          "year": 2013,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 9380,
+            "land": 600,
+            "total": 9980
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 803,
+          "year": 2012,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 9380,
+            "land": 600,
+            "total": 9980
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 183,
+          "year": 2010,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 630,
+            "land": 2350,
+            "total": 2980
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 182,
+          "year": 2009,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 21910,
+            "land": 2350,
+            "total": 24260
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 197,
+          "year": 2008,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 24920,
+            "land": 2660,
+            "total": 27580
+          }
+        },
+        {
+          "__typename": "TaxHistory",
+          "tax": 191,
+          "year": 2007,
+          "assessment": {
+            "__typename": "Assessment",
+            "building": 730,
+            "land": 2660,
+            "total": 3390
+          }
+        }
+      ],
+      "property_history": [
+        {
+          "date": "2026-03-30",
+          "event_name": "Listed",
+          "price": 55000
+        },
+        {
+          "date": "2013-12-30",
+          "event_name": "Sold",
+          "price": 27750
+        }
+      ],
+      "estimates": {
+        "__typename": "HomeEstimates",
+        "currentValues": [
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "collateral",
+              "name": "Collateral Analytics"
+            },
+            "estimate": 82000,
+            "estimateHigh": 84500,
+            "estimateLow": 79500,
+            "date": "2026-03-14",
+            "isBestHomeValue": true
+          },
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "corelogic",
+              "name": "Cotality™"
+            },
+            "estimate": 87500,
+            "estimateHigh": 113700,
+            "estimateLow": 61200,
+            "date": "2026-03-09",
+            "isBestHomeValue": false
+          },
+          {
+            "__typename": "LatestEstimate",
+            "source": {
+              "__typename": "EstimateSource",
+              "type": "quantarium",
+              "name": "Quantarium"
+            },
+            "estimate": 59107,
+            "estimateHigh": 76839,
+            "estimateLow": 41374,
+            "date": "2026-04-01",
+            "isBestHomeValue": false
+          }
+        ]
+      }
+    }
+  ]
+}
